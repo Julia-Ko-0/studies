@@ -2,16 +2,10 @@ let name = ['Anton','Blada','Ksusha','Dima']
 let evaluations = [50,70,85,100]
 
 
-//let rating = ['Катя', 'Вася', 'Маша', 'Петя', 'Лена'];
-// let rating = [15, 20, 0];
-// console.log('Рейтинг студентов:');
+
 let i = 0
 
-// for (i in rating) {
-//     // console.log(i)
-//     console.log(typeof(i));
-//     console.log(`${i + 1} место: ${rating[i]}`);
-// }
+
 
 for (i in evaluations){
 
