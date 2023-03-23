@@ -5,16 +5,18 @@
 //     }
 // }
 
-var mas = [4," ",null, false , 2,12,24,0,-32,-1,-1,34]
+let mas = [4," ",null, false , 2,12,24,0,-32,-1,-1,34,0]
 for (i=0; i < mas.length ; i++){
     ochishMas(mas[i])
+
 }
-console.log(mas)
+console.log(massiv)
 
 
-function ochishMas(mas){
-    if(mas !== false && mas !== undefined && mas !== " " && mas !== 0 && mas !== null){
-      
+function ochishMas(a){
+    massiv = []
+    if(a !== false && a !== undefined && a !== " " && a !== 0 && a !== null){
+      massiv.push(a)
     }
 }
 
