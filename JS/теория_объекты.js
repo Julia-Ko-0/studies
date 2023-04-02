@@ -5,7 +5,7 @@
 // console.log(obj2);
 // console.log(obj2.age);
 
-// Задание 2
+// // Задание 2
 // let obj = { 'Коля': '1000', 'Вася': '500', 'Петя': '200' }
 // console.log(obj.Коля)
 
@@ -32,15 +32,34 @@
 //     }
 // }
 // console.log(ur1)
+
+
+// let user = [
+//     {
+//         name: "John",
+//         age: 30
+//     },
+//     {
+//         name: "Bob",
+//         age: 21
+//     },
+//     {
+//         name: "Anna",
+//         age: 19
+//     }
+// ]
+
 // for(i in user){
 //     if (user[i].name =="Anna"){
 //        delete user[i] 
 //     }
 // }
-// console.log(user)
+// console.log(user[0])
+// console.log(user[1])
+// console.log(user[2])
 
 
-// Задание 4
+// // Задание 4
 // let obj = {
 //     name:"Anna",
 //     surname:"Ene",
@@ -54,4 +73,75 @@
 // delete obj.c
 // console.log(obj)
 
-// Задание 5
+// // // Задание 5
+// let sum = 0
+// let mul = 1
+// function sumAndMul(num){
+    
+//     for (let k in num){
+//         sum += num[k]
+//         mul *= num[k]
+        
+//     }
+//     console.log(sum,mul)
+  
+// }
+// let calculator = {
+//     num1:100,
+//     num2:150
+// }
+// sumAndMul(calculator)
+
+
+// let salaries = {
+//   John: 100,
+//   Ann: 160,
+//   Pete: 130,
+// };
+
+// for (let prop in salaries) {
+//   // console.log(prop);
+//   console.log(salaries[prop]);
+// }
+
+
+// // задание 6
+// let salaries = {
+//     John: 100,
+//     Ann: 160,
+//     Pete: 130
+// }
+
+// let sum = 0
+// let mas = Object.values(salaries)
+// for (let k in mas){
+//     sum += mas[k]
+    
+    
+// }
+// console.log(sum)
+
+// // Задание 7
+
+// let user = {
+//     name: "John",
+//     age: 30
+// };
+
+// let mas = Object.keys(user)
+// if (mas.length == 0){
+//     console.log('pysto')
+// }
+// else{
+//     console.log('HE pysto')
+//     for(let i in user){
+//         if (i == 'age'){
+//             console.log('age есть')
+//         }
+//     }
+// }
+
+// Задание 8
+
+// Задание 9
+function multiplyNumeric(obj)
