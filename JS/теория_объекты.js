@@ -128,20 +128,56 @@
 //     age: 30
 // };
 
-// let mas = Object.keys(user)
-// if (mas.length == 0){
-//     console.log('pysto')
-// }
-// else{
-//     console.log('HE pysto')
-//     for(let i in user){
-//         if (i == 'age'){
-//             console.log('age есть')
-//         }
+// // // 1)
+// // let mas = Object.keys(user)
+// // if (mas.length == 0){
+// //     console.log('pysto')
+// // }
+// // else{
+// //     console.log('HE pysto')
+// //     for(let i in user){
+// //         if (i == 'age'){
+// //             console.log('age есть')
+// //         }
+// //     }
+// // }
+
+// // // 2)
+// function func(obj) {
+//     for (let i in obj) {
+//       return true;
 //     }
+//     return false;
+//   }
+// if(func(user)){
+//     console.log('HE pyst')
 // }
+
+
 
 // Задание 8
 
-// Задание 9
-function multiplyNumeric(obj)
+// // Задание 9
+
+
+// let menu = {
+//     width: 200,
+//     height: 300,
+//     title: "My menu"
+// };
+
+
+
+// function multiplyNumeric(obj){
+//     for (let i in obj){
+//         if ((typeof obj[i]) === "number"){
+//            obj[i] *=2
+//         }
+       
+//     }
+// }
+// multiplyNumeric(menu)
+
+// console.log(menu)
+
+
