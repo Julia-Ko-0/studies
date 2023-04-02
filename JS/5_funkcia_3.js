@@ -21,5 +21,4 @@ for (var i = 0; i <= Mas.length; i++) {
   
 }
 
-
 console.log(newMas)

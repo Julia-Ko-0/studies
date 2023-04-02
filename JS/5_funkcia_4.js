@@ -1,5 +1,4 @@
 
-
 let c = function povtZn(a){
     
     if(!newMas.includes(a)){
@@ -14,7 +13,6 @@ let newMas = []
 
 mas.forEach(c)
 console.log(newMas)
-
 
 
 
