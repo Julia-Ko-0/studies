@@ -1,5 +1,5 @@
 
-let mas = [4," ",null, false , 2,12,24,0,-32,-1,-1,34,0]
+
 var Mas = [4," ",null,false,4,2,12,24,0,-32,-1,-1,34]
 
 function isNumberInRange(num) {
@@ -20,5 +20,6 @@ for (var i = 0; i <= Mas.length; i++) {
 	}
   
 }
+
 
 console.log(newMas)
