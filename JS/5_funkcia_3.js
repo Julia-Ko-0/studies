@@ -9,7 +9,6 @@ function isNumberInRange(num) {
 		return false
 	}
 }
-
 var newMas = []
 for (var i = 0; i <= Mas.length; i++) {
 
@@ -18,7 +17,6 @@ for (var i = 0; i <= Mas.length; i++) {
 		newMas.push(Mas[i])
 
 	}
-  
 }
 
 console.log(newMas)
