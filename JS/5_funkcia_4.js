@@ -1,15 +1,20 @@
-function povtZnach(a , b){
-    if (a != b){
-        return true
+
+
+let c = function povtZn(a){
+    
+    if(!newMas.includes(a)){
+        newMas.push(a)
     }
+    
 }
 
 let mas = ["r",0,"r",2,0,0]
-let massiv = []
-for (let i of mas){
-    if(povtZnach()){
-        massiv.push(i)
-        
-    }
-    console.log(massiv)
-}
+let newMas = []
+
+mas.forEach(c)
+console.log(newMas)
+
+
+
+
+

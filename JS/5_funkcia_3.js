@@ -1,30 +1,24 @@
-// function ochishMas(mas){
-//     if(mas !== false && mas !== undefined && mas !== " " && mas !== 0 && mas !== null){
-//        let newMas = []
-//        newMas.push(mas) 
-//     }
-// }
 
 let mas = [4," ",null, false , 2,12,24,0,-32,-1,-1,34,0]
-for (i=0; i < mas.length ; i++){
-    ochishMas(mas[i])
+var Mas = [4," ",null,false,4,2,12,24,0,-32,-1,-1,34]
 
-}
-console.log(massiv)
-
-
-function ochishMas(a){
-    massiv = []
-    if(a !== false && a !== undefined && a !== " " && a !== 0 && a !== null){
-      massiv.push(a)
-    }
+function isNumberInRange(num) {
+	if (num != false && num !=' ' && num != undefined && num != 0 && num !=null ) {
+		return true
+	} else {
+		return false
+	}
 }
 
-// const array = [1, null, "2", null, null, 3.0]
-// const array2 = array.filter(ochishMas);
-// console.log(array);
+var newMas = []
+for (var i = 0; i <= Mas.length; i++) {
 
+	if (isNumberInRange(Mas[i])) {
 
-// const array = [1, null, "2", null, null, 3.0]
-// const array2 = array.filter(element => element !== null);
-// console.log(array2);
+		newMas.push(Mas[i])
+
+	}
+  
+}
+
+console.log(newMas)
