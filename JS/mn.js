@@ -7,23 +7,23 @@ let i = 0
 
 
 
-for (i in evaluations){
+for  (i in evaluations) {
 
-    if (evaluations[i]<60){
+    if  (evaluations [i]<60){
         let otv = "F"
-        console.log(name[i], otv )    
+        console.log(name [i], otv )    
     }
-    else if(evaluations[i]<70){
+    else if (evaluations [i]<70){
         let otv = "D"
-        console.log(name[i], otv )
+        console.log(name [i], otv )
     }
-    else if(evaluations[i]<80){
+    else if (evaluations [i]<80){
         let otv = "C"
-        console.log(name[i], otv )
+        console.log(name [i], otv )
     }
-    else if(evaluations[i]<90){
+    else if (evaluations [i]<90){
         let otv = "B"
-        console.log(name[i], otv )
+        console.log(name [i], otv )
     }
     else if(evaluations[i]<=100){
         let otv = "A"
@@ -37,4 +37,3 @@ for (let a = 0; a< evaluations.length;a++){
     sum += evaluations[a]
 }
 console.log(sum/(evaluations).length)
-
