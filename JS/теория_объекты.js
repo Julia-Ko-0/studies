@@ -157,27 +157,27 @@
 
 // Задание 8
 
-// // Задание 9
+// Задание 9
 
 
-// let menu = {
-//     width: 200,
-//     height: 300,
-//     title: "My menu"
-// };
+let menu = {
+    width: 200,
+    height: 300,
+    title: "My menu"
+};
 
 
 
-// function multiplyNumeric(obj){
-//     for (let i in obj){
-//         if ((typeof obj[i]) === "number"){
-//            obj[i] *=2
-//         }
+function multiplyNumeric(obj){
+    for (let i in obj){
+        if ((typeof obj[i]) === "number"){
+           obj[i] *=2
+        }
        
-//     }
-// }
-// multiplyNumeric(menu)
+    }
+}
+multiplyNumeric(menu)
 
-// console.log(menu)
+console.log(menu)
 
 
