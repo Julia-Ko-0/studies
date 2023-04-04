@@ -8,17 +8,14 @@
     function createTodoItemForm(){
         let form = document.createElement('form')
         let input = document.createElement('input')
-        let buttonZnach = document.createElement('div')
         let button = document.createElement('button')
 
         input.placeholder = 'Введите новое дело'
         button.textContent = 'Добавить дело'
        
-
         
-        buttonZnach.append(button);
         form.append(input);
-        form.append(buttonZnach);
+        form.append(button);
     
         return {
             form,
@@ -26,25 +23,19 @@
             button,
         };
     }
-
     function createTodoList(){
         let list = document.createElement('ul')
+        
         return list;
-
     }
-
-    function createTodoItem(){
+    function createTodoItem(elem){
         let  item = document.createElement('li')
         
-
-        item.textContent = name
-        
+        item.textContent = elem
         return{
             item
         }
     }
-    
-
     function spisokDel(name){
         document.addEventListener('DOMContentLoaded',function(){
             let todoTitle = createAppTitle(name)
