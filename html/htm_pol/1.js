@@ -98,7 +98,8 @@ function create_all(text) {
   inp.addEventListener("input", () => {
     if (inp.value.trim() == "") {
       btn.disabled = true;
-    } else {
+     } 
+    else {
       btn.removeAttribute("disabled");
     }
   });
