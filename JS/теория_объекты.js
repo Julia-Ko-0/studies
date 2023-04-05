@@ -5,6 +5,16 @@
 // console.log(obj2);
 // console.log(obj2.age);
 
+// // Задание 1
+// let user = {}
+// user.name = 'John'
+// user.surname = 'Smit'
+// user.name = 'Pete'
+
+// delete user.name
+
+// console.log(user)
+
 // // Задание 2
 // let obj = { 'Коля': '1000', 'Вася': '500', 'Петя': '200' }
 // console.log(obj.Коля)
@@ -157,27 +167,27 @@
 
 // Задание 8
 
-// Задание 9
+// // Задание 9
 
 
-let menu = {
-    width: 200,
-    height: 300,
-    title: "My menu"
-};
+// let menu = {
+//     width: 200,
+//     height: 300,
+//     title: "My menu"
+// };
 
 
 
-function multiplyNumeric(obj){
-    for (let i in obj){
-        if ((typeof obj[i]) === "number"){
-           obj[i] *=2
-        }
+// function multiplyNumeric(obj){
+//     for (let i in obj){
+//         if ((typeof obj[i]) === "number"){
+//            obj[i] *=2
+//         }
        
-    }
-}
-multiplyNumeric(menu)
+//     }
+// }
+// multiplyNumeric(menu)
 
-console.log(menu)
+// console.log(menu)
 
 
