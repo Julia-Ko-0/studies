@@ -3,6 +3,7 @@ heading.innerHTML = 'TODO'
 heading.className = 'TODO'
 let  title = document.createElement('h2')
 let form = document.createElement("form")
+form.classList = 'form'
 
 let ul = document.createElement("ul")
 
@@ -19,14 +20,18 @@ function createTodoItemForm() {
     inp.className = "input"
     let btn = document.createElement("button")
     btn.textContent = "Добавить задачу"
+    btn.disabled = true
+    btn.className = "btn"
 
-    // btn.className = "btn"
-    // if(inp = ""){
-    //     btn.disabled = true
-    // }
-    // else {
-    //     btn.disabled = false
-    // }
+ 
+
+        if(inp == ""){
+            btn.disabled = true
+        }
+        else {
+            btn.disabled = false
+        }
+  
 
     form.append(inp)
     form.append(btn)
@@ -38,27 +43,35 @@ function createTodoItemForm() {
         inp
     }
 }
-// let input = createTodoItemForm()
-// input.inp.addEventListener('input',()=>{
-//     if (inp = ""){
-//         btn.disabled = true
-//     }
-//     else{
-//         btn.disabled = false
-//     }
-// })
+
 function  createTodoItem(name){
     
     let li = document.createElement('li')
-    li.textContent = name
+    let btns = document.createElement('div')
+    li.className = 'li'
+    let text = document.createElement('p')
+    text.textContent = name
+    text.className ='text'
     let doneBtn = document.createElement('button')
     let deleteBtn = document.createElement('button')
     doneBtn.textContent = "Сделано"
-    deleteBtn.textContent = "Удалить"
     
+    deleteBtn.textContent = "Удалить"
+    btns.className = 'btns'
+    btns.append(doneBtn)
+    btns.append(deleteBtn)
 
+    
+    doneBtn.addEventListener('click', ()=>{
+        text.classList.toggle('done')
+    })
+    deleteBtn.addEventListener('click',()=>{
+        li.remove()
+    })
+    li.append(text)
     li.append(doneBtn)
     li.append(deleteBtn)
+    
     
     return {
         li,
@@ -74,7 +87,8 @@ function appSpisok(name){
     document.addEventListener('DOMContentLoaded', function (){
         let container = document.getElementById('container')
         let TodoItemForm = createTodoItemForm()
-        let todoItem = createTodoItem()
+
+        
 
         
         container.append(heading)
@@ -83,10 +97,17 @@ function appSpisok(name){
         container.append(TodoItemForm.form)
         form.addEventListener('submit',(a)=>{
             a.preventDefault()
+            // if (!TodoItemForm.inp.value) {
+            //     return 
+            // }
+           
 
             let el = createTodoItem(TodoItemForm.inp.value)
             container.append(ul)
             ul.append(el.li) 
+           
+            TodoItemForm.inp.value = ''
+                
 
         })
                       
@@ -94,6 +115,8 @@ function appSpisok(name){
     
     })
 }
-appSpisok('sareg')
+appSpisok('Список 1')
+// appSpisok('Список 2')
+
 
 
