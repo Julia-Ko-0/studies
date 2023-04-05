@@ -20,17 +20,17 @@ function createTodoItemForm() {
     inp.className = "input"
     let btn = document.createElement("button")
     btn.textContent = "Добавить задачу"
-    btn.disabled = true
+
     btn.className = "btn"
 
  
 
-        if(inp == ""){
-            btn.disabled = true
-        }
-        else {
-            btn.disabled = false
-        }
+        // if(inp == ""){
+        //     btn.disabled = true
+        // }
+        // else {
+        //     btn.disabled = false
+        // }
   
 
     form.append(inp)
@@ -107,11 +107,22 @@ function appSpisok(name){
             ul.append(el.li) 
            
             TodoItemForm.inp.value = ''
+            container.querySelector(".btn").disabled = true
+
                 
 
         })
                       
-    
+        container.querySelector(".btn").disabled = true
+        TodoItemForm.inp.addEventListener("input",()=>{
+            if (TodoItemForm.inp.value != ''){
+                container.querySelector('.btn').disabled = false
+            }
+            else{
+                container.querySelector(".btn").disabled = true
+            }
+        })
+        
     
     })
 }
