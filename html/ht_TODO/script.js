@@ -2,6 +2,7 @@ let heading = document.createElement('h1')
 heading.innerHTML = 'TODO'
 heading.className = 'TODO'
 let  title = document.createElement('h2')
+let form = document.createElement("form")
 
 let ul = document.createElement("ul")
 
@@ -13,16 +14,22 @@ function createAppTitle(name_title){
 }
 
 function createTodoItemForm() {
-    let form = document.createElement("form")
-    const inp = document.createElement("input")
+    
+    let inp = document.createElement("input")
     inp.className = "input"
     let btn = document.createElement("button")
-    btn.textContent = "Create task"
-    btn.className = "btn"
-    // btn.disabled = true
+    btn.textContent = "Добавить задачу"
 
-    form.append(btn)
+    // btn.className = "btn"
+    // if(inp = ""){
+    //     btn.disabled = true
+    // }
+    // else {
+    //     btn.disabled = false
+    // }
+
     form.append(inp)
+    form.append(btn)
    
         
     return {
@@ -31,8 +38,8 @@ function createTodoItemForm() {
         inp
     }
 }
-
-// input.addEventListener('input',()=>{
+// let input = createTodoItemForm()
+// input.inp.addEventListener('input',()=>{
 //     if (inp = ""){
 //         btn.disabled = true
 //     }
@@ -40,20 +47,49 @@ function createTodoItemForm() {
 //         btn.disabled = false
 //     }
 // })
+function  createTodoItem(name){
+    
+    let li = document.createElement('li')
+    li.textContent = name
+    let doneBtn = document.createElement('button')
+    let deleteBtn = document.createElement('button')
+    doneBtn.textContent = "Сделано"
+    deleteBtn.textContent = "Удалить"
+    
 
+    li.append(doneBtn)
+    li.append(deleteBtn)
+    
+    return {
+        li,
+        doneBtn,
+        deleteBtn
+    }
+}
 
+form.addEventListener('submit',(a)=>{
+    a.preventDefault()
+})
 function appSpisok(name){
     document.addEventListener('DOMContentLoaded', function (){
         let container = document.getElementById('container')
         let TodoItemForm = createTodoItemForm()
-        
+        let todoItem = createTodoItem()
+
         
         container.append(heading)
         container.append(createAppTitle(name))
         
         container.append(TodoItemForm.form)
-        
-                    
+        form.addEventListener('submit',(a)=>{
+            a.preventDefault()
+
+            let el = createTodoItem(TodoItemForm.inp.value)
+            container.append(ul)
+            ul.append(el.li) 
+
+        })
+                      
     
     
     })
