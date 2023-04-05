@@ -10,12 +10,12 @@ let objects = [
 //         }
 //     }
 // }
-function filter (obj, name, nazv){
+function filter (obj, key, nazv){
     
     for(let i in obj){
-        if (obj[i].name == nazv){
+        if (obj[i].key == nazv){
             console.log(obj[i])
         }
     }
 }
-filter(objects,"name",'Иван')
+filter(objects,"name",'Петр')

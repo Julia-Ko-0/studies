@@ -80,9 +80,6 @@ function  createTodoItem(name){
     }
 }
 
-form.addEventListener('submit',(a)=>{
-    a.preventDefault()
-})
 function appSpisok(name){
     document.addEventListener('DOMContentLoaded', function (){
         let container = document.getElementById('container')
