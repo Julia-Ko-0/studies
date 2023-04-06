@@ -6,12 +6,20 @@ let form = document.createElement("form")
 form.classList = 'form'
 
 let ul = document.createElement("ul")
-let mas = []
-localStorage
+myStorege = window.localStorage
 
-// function createTodoApp(){
-//     let dom = JSON.parse(localStorage.getItem())
-// }
+let lcSt = JSON.parse(localStorage.getItem('myStorege'))
+function createTodoApp(name_  ,done_ , id_ ){
+    
+    mas.push = {nome:name_,done:done_,id:id_}
+    for(let i in mas){
+        localStorage.setItem('text', JSON.stringify(mas[i]))
+        return mas
+    }
+
+    
+       
+}
 
 function createAppTitle(name_title){
     title.textContent = name_title
@@ -67,11 +75,12 @@ function  createTodoItem(name){
     btns.className = 'btns'
     btns.append(doneBtn)
     btns.append(deleteBtn)
-
+    let done = false
     
     doneBtn.addEventListener('click', ()=>{
         text.classList.toggle('done')
-        // done = true
+        
+       
         
     })
     deleteBtn.addEventListener('click',()=>{
@@ -86,20 +95,23 @@ function  createTodoItem(name){
     return {
         li,
         doneBtn,
-        deleteBtn
+        deleteBtn,
+        done
     }
 }
 
-function appSpisok(name){
+
+
+function appSpisok(name_todo){
     document.addEventListener('DOMContentLoaded', function (){
-        let container = document.getElementById('container')
-        let TodoItemForm = createTodoItemForm()
-
         
-
+        let container = document.getElementById('container')
+        
+        let TodoItemForm = createTodoItemForm()
+        let todoItem = createTodoItem()
         
         container.append(heading)
-        container.append(createAppTitle(name))
+        container.append(createAppTitle(name_todo))
         
         container.append(TodoItemForm.form)
         form.addEventListener('submit',(a)=>{
@@ -111,30 +123,42 @@ function appSpisok(name){
 
             let el = createTodoItem(TodoItemForm.inp.value)
             container.append(ul)
+            if(el){
+            // let dnf = createAppTitle(TodoItemForm.inp.value)
+            
             ul.append(el.li) 
-           
-            TodoItemForm.inp.value = ''
+           createTodoApp(TodoItemForm.inp.value,false,TodoItemForm.inp.value)
+            
             container.querySelector(".btn").disabled = true
-
-                
+            }
+            TodoItemForm.inp.value = ''
+           
 
         })
                       
-        container.querySelector(".btn").disabled = true
+        // container.querySelector(".btn").disabled = true
         TodoItemForm.inp.addEventListener("input",()=>{
             if (TodoItemForm.inp.value != ''){
                 container.querySelector('.btn').disabled = false
+                
+               
             }
             else{
                 container.querySelector(".btn").disabled = true
+                
+                
             }
+
+           
         })
+        
         
     
     })
 }
 appSpisok('Список 1')
 // appSpisok('Список 2')
+
 
 
 
