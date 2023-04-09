@@ -138,8 +138,7 @@ function  createTodoItem(name){
 
 
 function appSpisok(name_todo){
-    document.addEventListener('DOMContentLoaded', function (){
-        
+   
         let container = document.getElementById('container')
         
         let TodoItemForm = createTodoItemForm()
@@ -226,9 +225,9 @@ function appSpisok(name_todo){
         //         }
         //     }
         // })
-    })
+    
 }
-appSpisok('Список 1')
+
 // appSpisok('Список 2')
 
 
