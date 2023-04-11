@@ -198,42 +198,36 @@ function appSpisok(name_todo){
         }
     }
    
-        let container = document.getElementById('container')
+    let container = document.getElementById('container')
         
-        let TodoItemForm = createTodoItemForm()
-        let todoItem = createTodoItem()
-        
-        container.append(heading)
-        container.append(createAppTitle(name_todo))
-        
-        container.append(TodoItemForm.form)
-        if (localStorage.getItem(name_todo)){
-            mas = JSON.parse(localStorage.getItem(name_todo))
-            for(let i in mas){
-              
-               
-                
-                let elems = createTodoItem(mas[i].nome)
-                ul.append(elems.li)
-                container.append(ul)
-                if(mas[i].done === true){
-                    
-                   elems.text.classList.add('done')
-                }
-
+    let TodoItemForm = createTodoItemForm()
+    let todoItem = createTodoItem()        
+    container.append(heading)
+    container.append(createAppTitle(name_todo))
+       
+    container.append(TodoItemForm.form)
+    if (localStorage.getItem(name_todo)){
+        mas = JSON.parse(localStorage.getItem(name_todo))
+        for(let i in mas){
+            let elems = createTodoItem(mas[i].nome)
+            ul.append(elems.li)
+            container.append(ul)
+            if(mas[i].done === true){        
+               elems.text.classList.add('done')
             }
         }
+    }
         // console.log(lcSt)
-        form.addEventListener('submit',(a)=>{
-            a.preventDefault()
+    form.addEventListener('submit',(a)=>{
+        a.preventDefault()
             
-            let el = createTodoItem(TodoItemForm.inp.value)
-            container.append(ul)
+        let el = createTodoItem(TodoItemForm.inp.value)
+        container.append(ul)
             
-            ul.append(el.li) 
+        ul.append(el.li) 
            
             
-            container.querySelector(".btn").disabled = true
+        container.querySelector(".btn").disabled = true
             
             
             TodoItemForm.inp.value = ''
