@@ -1,0 +1,56 @@
+.form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.container{
+    background: rgb(134, 197, 199);
+    padding: 1rem;
+}
+.text{ 
+    float: left;
+    
+    width: 800000px;
+
+    text-align: center;
+    position: relative
+}
+.li{
+height: 100px;
+
+
+ background: dodgerblue;
+ width: 100px;
+ margin: 5px;
+
+
+
+    /* width: 50px;
+    height: 50px;
+    padding: 5px;
+    border: 50px;
+    border-color: blue;*/
+} 
+.block{
+    
+    max-width: 960px;
+    margin: 0 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: space-evenly;
+    -ms-flex-pack: space-evenly;
+    justify-content: space-evenly;
+      
+
+   }
+.li,
+
+.form {
+    height: 150px;
+    width: 150px;
+}
+   

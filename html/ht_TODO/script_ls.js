@@ -14,11 +14,7 @@ function createTodoApp(name_  ,done_ , id_ ){
     mas.push ({nome:name_,done:done_,id:id_})
     
         localStorage.setItem(id_, JSON.stringify(mas))
-       
-    
-
-    
-       
+     
 }
 // function createAppList(){
 //     for(let i = 1; i<localStorage;i++){
