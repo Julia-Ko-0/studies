@@ -6,32 +6,32 @@
 }
 .container{
     background: rgb(134, 197, 199);
-    padding: 1rem;
+    padding: 2rem;
 }
 .text{ 
-    float: left;
-    
-    width: 800000px;
-
-    text-align: center;
-    position: relative
+   
+     font-size: 300% ;
+     text-align: center;
+     margin-top: 20px;
+     /* text-align: justify; */
 }
 .li{
-height: 100px;
+
+    
+/* text-align:justify;
+text-align: center; */
+
+display:inline-block;
 
 
- background: dodgerblue;
- width: 100px;
- margin: 5px;
 
-
-
-    /* width: 50px;
-    height: 50px;
-    padding: 5px;
-    border: 50px;
-    border-color: blue;*/
 } 
+.div{
+    background-color: rgb(0, 0, 0);
+    height: 100px;
+    width: 100px;
+    margin: 30px;
+}
 .block{
     
     max-width: 960px;
@@ -47,10 +47,13 @@ height: 100px;
       
 
    }
-.li,
-
+   .ch{
+    background-color: rgb(255, 255, 255);
+   }
+/* .li, */
+/* 
 .form {
-    height: 150px;
-    width: 150px;
-}
+    height: 2000px;
+    width: 150000px;
+} */
    
