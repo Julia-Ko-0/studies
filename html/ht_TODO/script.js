@@ -6,7 +6,12 @@ let form = document.createElement("form")
 form.classList = 'form'
 
 let ul = document.createElement("ul")
+let mas = []
+localStorage
 
+// function createTodoApp(){
+//     let dom = JSON.parse(localStorage.getItem())
+// }
 
 function createAppTitle(name_title){
     title.textContent = name_title
@@ -50,6 +55,7 @@ function  createTodoItem(name){
     let btns = document.createElement('div')
     li.className = 'li'
     let text = document.createElement('p')
+    
     text.textContent = name
     text.className ='text'
     let doneBtn = document.createElement('button')
@@ -57,6 +63,7 @@ function  createTodoItem(name){
     doneBtn.textContent = "Сделано"
     
     deleteBtn.textContent = "Удалить"
+
     btns.className = 'btns'
     btns.append(doneBtn)
     btns.append(deleteBtn)
@@ -64,9 +71,12 @@ function  createTodoItem(name){
     
     doneBtn.addEventListener('click', ()=>{
         text.classList.toggle('done')
+        // done = true
+        
     })
     deleteBtn.addEventListener('click',()=>{
         li.remove()
+        // done = false
     })
     li.append(text)
     li.append(doneBtn)
