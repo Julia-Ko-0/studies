@@ -42,6 +42,9 @@ function createApp(){
     //   console.log(chislo)
     // return(chislo)
 }
+let count = 0 
+let el1 = ""
+let el2 = ""
 
 function createElementLi (el){
     let div = document.createElement("div")
@@ -53,21 +56,69 @@ function createElementLi (el){
     span.className = "li"
     div.append(text)
     div.append(span)
+   
     div.addEventListener("click",()=>{
-        console.log('ssss')
-        div.classList.add('ch')
         
+        if(count < 2) {
+            console.log('d')
+            count++
+            if(count === 1){
+                el1 = el
+                console.log(el)
+                div.classList.add('ch')
+            }
+            else{
+                el2 = el
+                div.classList.add('ch')
+            }
+           
+        }
+        if (count === 2){
+            if(el1 === el2){
+            
+                div.classList.add('win')
+                // div[el2].classList.add('win')
+                count = 0
+                
+            }
+            else{
+                
+                div.classList.add('fff')
+                count = 0
+                
+            }
+        }
+        
+           
+                
     })
-
+    
     return {
         div,
         text
     }
 }
+// function play(app){
+    
+//         if (app[0] == app[1]){
+//             console.log('aaaaa')
+//             div.classList.add('win')
+//             div.disabled = false
+//             mas = []
+//         }
+//         else{
+//             div.classList.add('div')
+//             mas = []
+//         }
+
+    
+
+    
+// }
 
 function appSpisok(){
     let container = document.getElementById('container')
-    
+    let elemLi = createElementLi()
     let crApp = createApp()
     container.append(heading)
 
@@ -82,6 +133,43 @@ function appSpisok(){
         ul.append(elem_2.div)
         container.append(ul)
     }
+    // createElementLi.div.addEventListener("click",(sob)=>{
+    //     let clicked = sob.target;
+    //     if(count < 2) {
+    //         console.log('d')
+    //         count++
+    //         if(count == 1){
+    //             el1 = clicked.div.el
+    //             console.log(el)
+    //             clicked.div.classList.add('ch')
+    //         }
+    //         else{
+    //             el2 = clicked.div.text.el
+    //             clicked.div.classList.add('ch')
+    //         }
+           
+    //     }
+    //     if (count == 2){
+    //         if(el1 === el2){
+            
+    //             div.classList.add('win')
+    //             // div[el2].classList.add('win')
+    //             count = 0
+                
+    //         }
+    //         else{
+                
+    //             div.classList.add('fff')
+    //             count = 0
+                
+    //         }
+    //     }
+        
+           
+                
+    // })
+    
+    // play(mas)
     // for(let i in mas_ch_2){
     //     let elem =createElementLi(crApp.mas_ch_2[i])
     //     ul.append(elem.div)
