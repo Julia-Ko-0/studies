@@ -50,6 +50,12 @@ display:inline-block;
    .ch{
     background-color: rgb(255, 255, 255);
    }
+   .win{
+    background-color: rgb(0, 255, 98);
+   }
+   .fff{
+    background-color: rgb(0, 0, 0);
+}
 /* .li, */
 /* 
 .form {
