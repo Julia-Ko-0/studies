@@ -1,3 +1,4 @@
+function appSpisok(){
 let heading = document.createElement('h1')
 heading.innerHTML = 'Игра '
 heading.className = 'Игра'
@@ -9,6 +10,7 @@ let ul = document.createElement("ul")
 ul.className = "block"
 let mas_ch_1 = []
 let mas_ch_2 = []
+
 // function createAppTitle(name_title){
 //     title.textContent = name_title
 //     title.className = 'title'
@@ -42,9 +44,7 @@ function createApp(){
     //   console.log(chislo)
     // return(chislo)
 }
-let count = 0 
-let el1 = ""
-let el2 = ""
+let mas = []
 
 function createElementLi (el){
     let div = document.createElement("div")
@@ -57,41 +57,16 @@ function createElementLi (el){
     div.append(text)
     div.append(span)
    
-    div.addEventListener("click",()=>{
-        
-        if(count < 2) {
-            console.log('d')
-            count++
-            if(count === 1){
-                el1 = el
-                console.log(el)
-                div.classList.add('ch')
-            }
-            else{
-                el2 = el
-                div.classList.add('ch')
-            }
-           
-        }
-        if (count === 2){
-            if(el1 === el2){
-            
-                div.classList.add('win')
-                // div[el2].classList.add('win')
-                count = 0
-                
-            }
-            else{
-                
-                div.classList.add('fff')
-                count = 0
-                
-            }
-        }
+    // div.addEventListener("click",()=>{
+    //     div.classList.add('ch')
         
            
-                
-    })
+    //             let znach = el
+    //             console.log(znach)
+    //             mas.push(znach)
+    //             console.log(mas)
+    //             play(mas)
+    // })
     
     return {
         div,
@@ -110,15 +85,12 @@ function createElementLi (el){
 //             div.classList.add('div')
 //             mas = []
 //         }
-
-    
-
     
 // }
+let count = 0
 
-function appSpisok(){
     let container = document.getElementById('container')
-    let elemLi = createElementLi()
+    
     let crApp = createApp()
     container.append(heading)
 
@@ -133,42 +105,29 @@ function appSpisok(){
         ul.append(elem_2.div)
         container.append(ul)
     }
-    // createElementLi.div.addEventListener("click",(sob)=>{
-    //     let clicked = sob.target;
-    //     if(count < 2) {
-    //         console.log('d')
-    //         count++
-    //         if(count == 1){
-    //             el1 = clicked.div.el
-    //             console.log(el)
-    //             clicked.div.classList.add('ch')
-    //         }
-    //         else{
-    //             el2 = clicked.div.text.el
-    //             clicked.div.classList.add('ch')
-    //         }
-           
-    //     }
-    //     if (count == 2){
-    //         if(el1 === el2){
-            
-    //             div.classList.add('win')
-    //             // div[el2].classList.add('win')
-    //             count = 0
-                
-    //         }
-    //         else{
-                
-    //             div.classList.add('fff')
-    //             count = 0
-                
-    //         }
-    //     }
+    
+    div.div.addEventListener("click",(sobt)=>{
+        let clicked = sobt.target;
+        if(count<2){
+            count++
+            if(count==1){
+                let el1 = clicked.text
+                clicked.div.classList.add('ch')
+            }
+            else{
+                let el2 = clicked.text
+                clicked.div.classList.add('ch')
+            }
+        }
+        
         
            
-                
-    // })
-    
+                // let znach = el
+                // console.log(znach)
+                // mas.push(znach)
+                // console.log(mas)
+                // play(mas)
+    })
     // play(mas)
     // for(let i in mas_ch_2){
     //     let elem =createElementLi(crApp.mas_ch_2[i])
