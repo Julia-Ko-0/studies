@@ -267,6 +267,20 @@ function appSpisok(name_todo){
 
 // appSpisok('Список 2')
 
+// function createInput (){
+//     let container = document.getElementById('container')
+//     let input = document.getElementById('input')
+//     let btn = document.getElementById('btn')
+//     btn.addEventListener('click',()=>{
+//         let name = input
+//         let li = document.createElement('li')
+//         let p = document.createElement('p')
+//         p.textContent = name
+//         li.append(p)
+//         container.append(li)
 
-
+//     })
+//     return input
+    
+// }
 
