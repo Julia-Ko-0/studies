@@ -1,12 +1,45 @@
+
+
+.content{
+    background: rgb(49, 138, 141);
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    /* justify-content: center; */
+
+    /* padding: 10%; */
+}
+.divLevl{
+   
+    margin: 30px;
+  
+    justify-content: center
+    
+}
+
+.levl{
+   
+    padding: 15px;
+    font-size: 30px;
+    margin: 30px;
+    background-color: rgb(118, 223, 188);
+    color: black;
+}
 .form{
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content:right;
+    margin-right: 150px;
+   font-size: 20px;
     
+}
+.play{
+    text-align: center;
+   
 }
 .container{
     background: rgb(134, 197, 199);
-    padding: 2rem;
+    padding: 5rem;
 }
 .text{ 
    
@@ -15,16 +48,12 @@
      margin-top: 20px;
      /* text-align: justify; */
 }
-.li{
 
-    
+
+.li{    
 /* text-align:justify;
 text-align: center; */
-
 display:inline-block;
-
-
-
 } 
 .div{
     background-color: rgb(0, 0, 0);
@@ -47,21 +76,22 @@ display:inline-block;
       
 
    }
-.ch{
+   .ch{
     background-color: rgb(255, 255, 255);
    }
+   .fff{
+    background-color: rgb(0, 0, 0);
+}
 .win{
     background-color: rgb(64, 185, 111);
    }
-.fff{
-    background-color: rgb(0, 0, 0);
-}
-/* .off{
+
+.off{
     pointer-events: none;
 }
 .on{
     pointer-events:fill;
-} */
+} 
 
 
 /* .li, */
