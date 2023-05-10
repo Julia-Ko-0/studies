@@ -64,7 +64,7 @@ function createElementLi (el,kol_Vo){
                     console.log(el)
                     console.log(div.id)
                     div.style.backgroundColor = 'rgb(255, 255, 255)'
-                   
+                   div.classList.add('off')
                     win_id = div.id 
                 }
                 else{
@@ -89,9 +89,15 @@ function createElementLi (el,kol_Vo){
                 }
                 else{
                     let el_win1 = document.getElementById(win_id)  
-                
-                    setTimeout(()=>{div.style.backgroundColor = 'rgb(0, 0, 0)'}, 700)
-                    setTimeout(()=>{el_win1.style.backgroundColor = 'rgb(0, 0, 0)'}, 700)
+                    
+                    setTimeout(()=>{
+                        div.style.backgroundColor = 'rgb(0, 0, 0)'
+                        div.classList.remove('off')
+                    }, 700)
+                    setTimeout(()=>{
+                        el_win1.style.backgroundColor = 'rgb(0, 0, 0)'
+                        el_win1.classList.remove('off')
+                    }, 700)
                 }
                 coun = 0
             }
@@ -103,7 +109,7 @@ function createElementLi (el,kol_Vo){
         span
     }
 }
-
+//
 function appSpisok(kolVo){
     let kol_vo = kolVo/2
     let container = document.getElementById('container')
@@ -127,4 +133,3 @@ function appSpisok(kolVo){
         location.reload()
     })   
 }
-
