@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>egw</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js"></script>
+   
+</head>
+<body id ="body">
+    <div class="input">
+        <input class = "INP__FCS" type="text" placeholder="Введите ФИО">
+        <input class = "INP__FAC" type="text" placeholder="Введите факультет">
+        <input class = "INP__DOB" type="text" placeholder="Введите дату рождения">
+        <input class = "INP__YOS" type="text" placeholder="Введите год начала учёбы"> 
+    </div>
+    <div class="button">
+        <button class = "button__in__modal" id = "ready__button" type="submit">Готово</button>
+        <button class = "button__in__modal" id = "cancel__button">Отмена</button>
+    </div>
+    <div class="container" id="container"></div>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", () =>{
+            createTable()
+        });
+      </script>
+      
+    
+   
+</body>
+</html>
