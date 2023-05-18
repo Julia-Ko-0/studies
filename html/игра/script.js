@@ -6,6 +6,12 @@ ul.className = "block"
 let mas_ch_1 = []
 let mas_ch_2 = []
 let mas_ch_3 = []
+function timer(time){
+    setInterval(()=>{
+        time--
+        
+    },1000)
+}
 
 function createApp(kolVo){
     while(mas_ch_3.length<kolVo){
@@ -132,4 +138,8 @@ function appSpisok(kolVo){
     buttom.addEventListener("click",()=>{
         location.reload()
     })   
+    let time = document.createElement("p")
+    container.append(time)
+    time.textContent = 100
+    timer(time.textContent)
 }
