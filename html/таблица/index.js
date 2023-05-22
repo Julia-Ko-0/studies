@@ -109,7 +109,17 @@ function createTable(){
         table.appendChild(thead)
         table.appendChild(tbody)
         table.append(tr1)
-   
+        btn_got.addEventListener("click",()=>{
+            let mas = input_FIO.value.split(" ")
+            console.log(mas)
+            console.log(input_faclt.value)
+            console.log(app)
+            appDan(mas[0],mas[1],mas[2],input_faclt.value,input_biday.value,input_year.value)
+            
+        
+            let name = createTable_vn(mas[0],mas[1],mas[2],input_faclt.value,input_biday.value,input_year.value)
+            tbody.appendChild(name)
+        })
   
         
        
@@ -122,6 +132,13 @@ function createTable(){
                 tbody.appendChild(name)
             }
         }
+       if(localStorage.getItem("table")==null){
+        for(let i = 0; i<app.length;i++){
+        
+            let name = createTable_vn(createTablBody(i).name,createTablBody(i).lName,createTablBody(i).patrName,createTablBody(i).facult,createTablBody(i).birthday,createTablBody(i).year)
+            tbody.appendChild(name)
+        }
+       }
 
  
 
@@ -146,17 +163,7 @@ function createTable(){
     tr1.appendChild(head5)
     tr1.appendChild(head6)
 
-    btn_got.addEventListener("click",()=>{
-        let mas = input_FIO.value.split(" ")
-        console.log(mas)
-        console.log(input_faclt.value)
-        console.log(app)
-        appDan(mas[0],mas[1],mas[2],input_faclt.value,input_biday.value,input_year.value)
-        
     
-        let name = createTable_vn(mas[0],mas[1],mas[2],input_faclt.value,input_biday.value,input_year.value)
-        tbody.appendChild(name)
-    })
     
     conteiner.appendChild(table)
     
