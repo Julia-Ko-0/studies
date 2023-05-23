@@ -1,0 +1,84 @@
+.container{
+    background: rgb(134, 197, 199);
+    padding: 1rem;
+}
+.TODO{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(147, 152, 223)
+}
+.title{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(144, 174, 231)
+}
+.done{
+    color: chartreuse;
+    text-decoration: line-through;
+    text-decoration-color: darkorange;
+}
+.btn{
+    float: right;
+    /* justify-content: space-between; */
+    width: 80px;
+
+    height: 30px;
+
+    text-align: center;
+    
+}
+.li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(172, 134, 194);
+
+} 
+.form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.text{
+    float: left;
+    
+    width: 800000px;
+
+    text-align: center;
+}
+.btns{
+    float: right;
+    
+    width: 80000000px;
+
+    height: 30px;
+
+    text-align: center;
+} 
+.link{
+
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(116, 121, 187)
+}
+.sp1{
+    padding: 1rem;
+    background: rgb(168, 150, 209);
+}
+.sp2{
+  
+    padding: 1rem;
+    background: rgb(168, 150, 209);
+}
+
+.sp3{
+    padding: 1rem;
+    background: rgb(168, 150, 209);
+}
+

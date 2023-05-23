@@ -60,139 +60,126 @@ function createTodoItemForm() {
     }
 }
 
-// function  createTodoItem(name){
+function  createTodoItem(name,name_todo){
     
-//     let li = document.createElement('li')
-//     let btns = document.createElement('div')
-//     li.className = 'li'
-//     let text = document.createElement('p')
+    let li = document.createElement('li')
+    let btns = document.createElement('div')
+    li.className = 'li'
+    let text = document.createElement('p')
     
-//     text.textContent = name
-//     text.className ='text'
-//     let doneBtn = document.createElement('button')
-//     let deleteBtn = document.createElement('button')
-//     doneBtn.textContent = "Сделано"
+    text.textContent = name
+    text.className ='text'
+    let doneBtn = document.createElement('button')
+    let deleteBtn = document.createElement('button')
+    doneBtn.textContent = "Сделано"
     
-//     deleteBtn.textContent = "Удалить"
+    deleteBtn.textContent = "Удалить"
 
-//     btns.className = 'btns'
-//     btns.append(doneBtn)
-//     btns.append(deleteBtn)
-//     let done = false
+    btns.className = 'btns'
+    btns.append(doneBtn)
+    btns.append(deleteBtn)
+    // let done = false
     
     
         
-//     doneBtn.addEventListener('click', ()=>{
-//         text.classList.toggle('done')
+    doneBtn.addEventListener('click', ()=>{
+        text.classList.toggle('done')
         
-//         done == false ? done = true : done = false
-//         for(let i in mas){
-//             if(mas[i].nome == name){
-//                 mas[i].done = done
-//                 localStorage.setItem('Список 1', JSON.stringify(mas))
-//             }
-//         }
-//     })
         
-       
-        
-    
-//     deleteBtn.addEventListener('click',()=>{
-//         li.remove()
-//         // done = false
-//         for(let i in mas){
-//             if(mas[i].nome == name){
-//                 mas.splice(i,1,)
-//                 localStorage.setItem('Список 1', JSON.stringify(mas))
-//             }
-//         }
-        
-//             // for(let i in mas){
-//             //     console.log(mas)
-//             //     console.log('nnnnn')
-//             //     console.log(mas)
-//             //     if (mas[i].nome == li.text){
-//             //         console.log('aaaaa')
-//             //         localStorage.removeItem(`${mas[i]}`)
-//             //         break
-//             //     }
-//             // }
-//     })
-//     li.append(text)
-//     li.append(doneBtn)
-//     li.append(deleteBtn)
-    
-    
-//     return {
-//         li,
-//         doneBtn,
-//         deleteBtn,
-//         done
-//     }
-// }
+        for(let i in mas){
+            
+            if(mas[i].nome == name){
+                mas[i].done == false ? mas[i].done = true : mas[i].done = false
+                
+                localStorage.setItem(name_todo, JSON.stringify(mas))
+            }
+        }
+    })
 
-
+    deleteBtn.addEventListener('click',()=>{
+        li.remove()
+        // done = false
+        for(let i in mas){
+            if(mas[i].nome == name){
+                mas.splice(i,1,)
+                localStorage.setItem(name_todo, JSON.stringify(mas))
+            }
+        }
+        
+    })
+    li.append(text)
+    li.append(doneBtn)
+    li.append(deleteBtn)
+    
+    
+    return {
+        li,
+        doneBtn,
+        deleteBtn,
+        text
+    }
+}
 
 function appSpisok(name_todo){
-    function  createTodoItem(name){
+    // function  createTodoItem(name){
     
-        let li = document.createElement('li')
-        let btns = document.createElement('div')
-        li.className = 'li'
-        let text = document.createElement('p')
+    //     let li = document.createElement('li')
+    //     let btns = document.createElement('div')
+    //     li.className = 'li'
+    //     let text = document.createElement('p')
         
-        text.textContent = name
-        text.className ='text'
-        let doneBtn = document.createElement('button')
-        let deleteBtn = document.createElement('button')
-        doneBtn.textContent = "Сделано"
+    //     text.textContent = name
+    //     text.className ='text'
+    //     let doneBtn = document.createElement('button')
+    //     let deleteBtn = document.createElement('button')
+    //     doneBtn.textContent = "Сделано"
         
-        deleteBtn.textContent = "Удалить"
+    //     deleteBtn.textContent = "Удалить"
     
-        btns.className = 'btns'
-        btns.append(doneBtn)
-        btns.append(deleteBtn)
-        // let done = false
+    //     btns.className = 'btns'
+    //     btns.append(doneBtn)
+    //     btns.append(deleteBtn)
+    //     // let done = false
         
         
             
-        doneBtn.addEventListener('click', ()=>{
-            text.classList.toggle('done')
+    //     doneBtn.addEventListener('click', ()=>{
+    //         text.classList.toggle('done')
             
             
-            for(let i in mas){
+    //         for(let i in mas){
                 
-                if(mas[i].nome == name){
-                    mas[i].done == false ? mas[i].done = true : mas[i].done = false
+    //             if(mas[i].nome == name){
+    //                 mas[i].done == false ? mas[i].done = true : mas[i].done = false
                     
-                    localStorage.setItem(name_todo, JSON.stringify(mas))
-                }
-            }
-        })
+    //                 localStorage.setItem(name_todo, JSON.stringify(mas))
+    //             }
+    //         }
+    //     })
 
-        deleteBtn.addEventListener('click',()=>{
-            li.remove()
-            // done = false
-            for(let i in mas){
-                if(mas[i].nome == name){
-                    mas.splice(i,1,)
-                    localStorage.setItem(name_todo, JSON.stringify(mas))
-                }
-            }
+    //     deleteBtn.addEventListener('click',()=>{
+    //         li.remove()
+    //         // done = false
+    //         for(let i in mas){
+    //             if(mas[i].nome == name){
+    //                 mas.splice(i,1,)
+    //                 localStorage.setItem(name_todo, JSON.stringify(mas))
+    //             }
+    //         }
             
-        })
-        li.append(text)
-        li.append(doneBtn)
-        li.append(deleteBtn)
+    //     })
+    //     li.append(text)
+    //     li.append(doneBtn)
+    //     li.append(deleteBtn)
         
         
-        return {
-            li,
-            doneBtn,
-            deleteBtn,
-            text
-        }
-    }
+    //     return {
+    //         li,
+    //         doneBtn,
+    //         deleteBtn,
+    //         text
+    //     }
+    // }
    
     let container = document.getElementById('container')
         
@@ -205,7 +192,7 @@ function appSpisok(name_todo){
     if (localStorage.getItem(name_todo)){
         mas = JSON.parse(localStorage.getItem(name_todo))
         for(let i in mas){
-            let elems = createTodoItem(mas[i].nome)
+            let elems = createTodoItem(mas[i].nome,name_todo)
             ul.append(elems.li)
             container.append(ul)
             if(mas[i].done === true){        
@@ -217,7 +204,7 @@ function appSpisok(name_todo){
     form.addEventListener('submit',(a)=>{
         a.preventDefault()
             
-        let el = createTodoItem(TodoItemForm.inp.value)
+        let el = createTodoItem(TodoItemForm.inp.value,name_todo)
         container.append(ul)
             
         ul.append(el.li) 

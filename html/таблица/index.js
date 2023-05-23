@@ -35,7 +35,7 @@ let app = [
 
 function appDan(name,sname,pname,facult,birthday,year){
     app.push({_name:name,_lastname:sname,_patronymic:pname,_facult:facult,_birthday:birthday,_year:year})
-    localStorage.setItem("table", JSON.stringify(mas))
+    localStorage.setItem("table", JSON.stringify(app))
 }
 function createTablBody(i){
     
@@ -85,10 +85,10 @@ function createTable_vn (name,sname,pname,facult,birthday,year){
 let heading = document.createElement('h1')
 heading.innerHTML = 'mkvmldk'
 function createTable(){
-    let input_FIO = document.getElementsByClassName("INP__FCS")
-    let input_faclt = document.getElementsByClassName("INP__FAC")
-    let input_biday = document.getElementsByClassName("INP__DOB")
-    let input_year = document.getElementsByClassName("INP__YOS")
+    let input_FIO = document.getElementById("INP__FCS")
+    let input_faclt = document.getElementById("INP__FAC")
+    let input_biday = document.getElementById("INP__DOB")
+    let input_year = document.getElementById("INP__YOS")
     let btn_got = document.getElementById("ready__button")
  
     let conteiner = document.getElementById('container')
@@ -137,7 +137,8 @@ function createTable(){
     conteiner.appendChild(table)
     
     btn_got.addEventListener("click",()=>{
-        appDan(input_FIO.value[0],input_FIO.value[1],input_FIO.value[2],input_faclt.value,input_biday.value,input_year.value)
-        console.log(input_FIO.value)
+        appDan(input_FIO.value.split(" ")[0],input_FIO.value.split(" ")[1],input_FIO.value.split(" ")[2],input_faclt.value,input_biday.value,input_year.value)
+        console.log()
+        console.log(app)
     })
 }
