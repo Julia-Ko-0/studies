@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>TODO</title>
+    <meta charset="UTF-8">
+    <script src="index.js"></script>
+</head>
+
+<body>
+    <script>
+        async function getTodoItem(){
+            const otv = await fetch("http://localhost:300/api/todos",{
+                method:'POST',
+                headers:{
+                    'Content-Type':"application/json"
+                },
+                body: JSON.stringify({
+                    name:"learn js",
+                    ower:"student",
+                    done:false
+                }),
+            })
+            .then((otv)=> otv.json())
+            .then((date)=>console.log(date))
+    
+        }
+        getTodoItem()
+    </script>
+    
+</body>
+
+</html>

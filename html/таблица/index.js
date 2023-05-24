@@ -82,9 +82,16 @@ function createTable_vn (name,sname,pname,facult,birthday,year){
    tr.appendChild(td7)
    return tr
 }
+// document.div.input.onsubmit = function() {
+//     var message = this.message.value;
+//     console.log(message)
+//     return false;
+//   };
 let heading = document.createElement('h1')
 heading.innerHTML = 'mkvmldk'
+// localStorage.setItem("table", JSON.stringify(app))
 function createTable(){
+<<<<<<< HEAD
     let input_FIO = document.getElementById("INP__FCS")
     let input_faclt = document.getElementById("INP__FAC")
     let input_biday = document.getElementById("INP__DOB")
@@ -97,17 +104,56 @@ function createTable(){
     let thead = document.createElement('thead')
     let tr1 = document.createElement('tr')
     let tbody = document.createElement('tbody')
+=======
+    
+    
+        let input_FIO = document.getElementById("INP__FCS")
+        let input_faclt = document.getElementById("INP__FAC")
+        let input_biday = document.getElementById("INP__DOB")
+        let input_year = document.getElementById("INP__YOS")
+        let btn_got = document.getElementById("ready__button")
+    
+        let conteiner = document.getElementById('container')
+        conteiner.append(heading)
+        let table = document.createElement('table')
+        let thead = document.createElement('thead')
+        let tr1 = document.createElement('tr')
+        let tbody = document.createElement('tbody')
+>>>>>>> 618ff66833597258fd0fafe11aecb48dc231e105
 
-    table.appendChild(thead)
-    table.appendChild(tbody)
-    table.append(tr1)
-    
-    for(let i = 0; i<app.length;i++){
+        table.appendChild(thead)
+        table.appendChild(tbody)
+        table.append(tr1)
+        btn_got.addEventListener("click",()=>{
+            let mas = input_FIO.value.split(" ")
+            console.log(mas)
+            console.log(input_faclt.value)
+            console.log(app)
+            appDan(mas[0],mas[1],mas[2],input_faclt.value,input_biday.value,input_year.value)
+            
+        
+            let name = createTable_vn(mas[0],mas[1],mas[2],input_faclt.value,input_biday.value,input_year.value)
+            tbody.appendChild(name)
+        })
+  
+        
        
-        let name = createTable_vn(createTablBody(i).name,createTablBody(i).lName,createTablBody(i).patrName,createTablBody(i).facult,createTablBody(i).birthday,createTablBody(i).year)
-        tbody.appendChild(name)
-    }
-    
+        if (localStorage.getItem("table")){
+            app = JSON.parse(localStorage.getItem("table"))
+            console.log("dfdfklsdjf")
+            for(let i = 0; i<app.length;i++){
+        
+                let name = createTable_vn(createTablBody(i).name,createTablBody(i).lName,createTablBody(i).patrName,createTablBody(i).facult,createTablBody(i).birthday,createTablBody(i).year)
+                tbody.appendChild(name)
+            }
+        }
+       if(localStorage.getItem("table")==null){
+        for(let i = 0; i<app.length;i++){
+        
+            let name = createTable_vn(createTablBody(i).name,createTablBody(i).lName,createTablBody(i).patrName,createTablBody(i).facult,createTablBody(i).birthday,createTablBody(i).year)
+            tbody.appendChild(name)
+        }
+       }
 
  
 
@@ -132,13 +178,17 @@ function createTable(){
     tr1.appendChild(head5)
     tr1.appendChild(head6)
 
-
+    
     
     conteiner.appendChild(table)
     
+<<<<<<< HEAD
     btn_got.addEventListener("click",()=>{
         appDan(input_FIO.value.split(" ")[0],input_FIO.value.split(" ")[1],input_FIO.value.split(" ")[2],input_faclt.value,input_biday.value,input_year.value)
         console.log()
         console.log(app)
     })
+=======
+    
+>>>>>>> 618ff66833597258fd0fafe11aecb48dc231e105
 }
