@@ -9,9 +9,9 @@ let ul = document.createElement("ul")
 
 let mas = []
 
-function createTodoApp(name_  ,done_ , id_ ){
+function createTodoApp(name_  ,done_ , id_ ,owner_){
      
-    mas.push({name:name_,done:done_,id:id_})
+    mas.push({name:name_,done:done_,id:id_,owner:owner_})
     // console.log(mas)
         // localStorage.setItem(id_, JSON.stringify(mas))
      
@@ -84,17 +84,21 @@ function createTodoItemForm() {
     
     
 }
-async function appServerToDo(){
+async function appServerToDo(name_todo){
     const response = await fetch("http://localhost:3000/api/todos",{method:"GET"})
     const serv = await response.json()
     console.log(serv)
     for(let i in serv){
-        let elems = createTodoItem(serv[i].name,"name_todo",serv[i].id)
-        ul.append(elems.li)
-        container.append(ul)
-        if(serv[i].done === true){        
-            elems.text.classList.add('done')
-            }
+        if(serv[i].owner == name_todo){
+            mas.push({name:serv[i].name,done:serv[i].done,id:serv[i].id,name_todo})
+            let elems = createTodoItem(serv[i].name,"name_todo",serv[i].id)
+            ul.append(elems.li)
+            container.append(ul)
+            if(serv[i].done === true){        
+                elems.text.classList.add('done')
+                }
+        }
+        
     }
     
 }
@@ -103,11 +107,10 @@ async function deleteiddb(id,_done) {
       method: "DELETE",
     });
   }
-  async function doneDb(id) {
+  async function doneDb(id,_done) {
     fetch(`http://localhost:3000/api/todos/${id}`, {
       method: "PATCH",
       body: JSON.stringify({
-        
         done: _done
     }),
     });
@@ -137,16 +140,17 @@ function  createTodoItem(name,name_todo,id){
     doneBtn.addEventListener('click', ()=>{
         text.classList.toggle('done')
         
-        doneDb(id,)
+        console.log(mas)
         for(let i in mas){
             
-            if(mas[i].nome == name){
+            if(mas[i].name == name){
                 mas[i].done == false ? mas[i].done = true : mas[i].done = false
-                
-                
+                doneDb(id,mas[i].done)
+                console.log(mas[i].done)
                 // localStorage.setItem(name_todo, JSON.stringify(mas))
             }
         }
+        
         
     })
 
@@ -180,7 +184,7 @@ function appSpisok(name_todo){
     let todoItem = createTodoItem()        
     container.append(heading)
     container.append(createAppTitle(name_todo))
-    appServerToDo()    
+    appServerToDo(name_todo)    
     container.append(TodoItemForm.form)
     form.addEventListener('submit',(a)=>{
         
@@ -211,7 +215,7 @@ function appSpisok(name_todo){
         })
         TodoItemForm.Btn1.addEventListener("click",()=>{ 
             console.log('dfh')
-            createTodoApp(TodoItemForm.inp.value,false,name_todo)
+            createTodoApp(TodoItemForm.inp.value,false,name_todo,name_todo)
             createServerToDo(TodoItemForm.inp.value,false,name_todo)
             
         })
