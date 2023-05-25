@@ -44,30 +44,31 @@ async function appServerToDo(owner){
     
 }
 // масив на сервер(имя+ид(номер списка)) =отрисовка с сервера 
-function createElementUl(b,a,owner_){
+// function createElementUl(b,a,owner_){
     
     
-    for(let i = b; i<a;i++){
+//     for(let i = b; i<a;i++){
+//         console.log(mas[i])
+//         createServer(mas[i],owner_)
+//         // createServer(mas[i],owner_)
+//         // let p = document.createElement("p")
+//         // p.textContent = mas[i]
+//         // console.log(p)
+//         // let li = document.createElement("li")
+//         // li.append(p)
+//         // ul.append(li)
+//     }
+//     appServerToDo(owner_)
+// }
+function createList(b,c,owner_){
+    for(let i = b; i<c;i++){
         console.log(mas[i])
         createServer(mas[i],owner_)
-        // createServer(mas[i],owner_)
-        // let p = document.createElement("p")
-        // p.textContent = mas[i]
-        // console.log(p)
-        // let li = document.createElement("li")
-        // li.append(p)
-        // ul.append(li)
     }
-    appServerToDo(owner_)
-}
-function createList(b,C,owner_){
     ul.addEventListener('submit',(a)=>{
         a.preventDefault()
-        for(let i = b; i<C;i++){
-            console.log(mas[i])
-            createServer(mas[i],owner_)
-        }
+        appServerToDo(owner_)
     })
-    appServerToDo(owner_)
+    // appServerToDo(owner_)
 }
 
