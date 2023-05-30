@@ -56,14 +56,23 @@ function createBlog(name,id){
     return id
 
 }
-function appBlog(owner){
+function appBlog(){
     // for(let i = 0;i<mas.length;i++){
     //     createServer(mas[i],owner)
     // }
     appServer()
+    // if(owner = 2){
+    //     appServer2(cr.id)
+    // }
+    // let cr = createBlog()
+    // appServer2(cr.id)
 
     
 }
 function appBlog2(){
-    appServer2()
+    
+    let cr = createBlog()
+    console.log(cr.id)
+    
+    
 }

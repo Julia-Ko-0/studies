@@ -23,6 +23,14 @@ connect.query("SELECT * FROM exam_marks",
 
     }
 )
+connect.query("INSERT INTO exam_marks VALUES (1,12,43,4,null)",(err,res)=>{
+    if(err){
+        console.log(err)
+    }
+    else{
+        console.log("Данные доб")
+    }
+})
 // connect.end((err)=>{
 //     if(err){
 //         return console.log("Ошибка"+ err.message)
