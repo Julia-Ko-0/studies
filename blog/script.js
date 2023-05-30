@@ -49,10 +49,11 @@ function createBlog(name,id){
     p.href = "index_2.html"
     li.append(p)
     ul.append(li)
-    p.addEventListener("click",()=>{
-        ids
-        console.log(ids)
-    })
+    // p.addEventListener("click",()=>{
+    //     ids
+    //     console.log(ids)
+    // })
+    return id
 
 }
 function appBlog(owner){
@@ -62,4 +63,7 @@ function appBlog(owner){
     appServer()
 
     
+}
+function appBlog2(){
+    appServer2()
 }
