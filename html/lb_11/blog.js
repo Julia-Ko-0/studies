@@ -18,6 +18,8 @@ async function createServer(name_,_id){
     })
     const date = await response.json()
     console.log("aaa",date)
+    // let elem = createLi(date.name,date.id)
+    // ul.append(elem.li)
         // let p = document.createElement("p")
         // p.textContent = name_
         // console.log(p)
@@ -26,7 +28,7 @@ async function createServer(name_,_id){
         // ul.append(li)
     
 }
-async function appServerToDo(owner){
+async function appServer(owner){
     const response = await fetch("http://localhost:3000/api/todos",{method:"GET"})
     const serv = await response.json()
     console.log(serv)
@@ -60,6 +62,22 @@ async function appServerToDo(owner){
 //     }
 //     appServerToDo(owner_)
 // }
+function createLi(name,id){
+    let li = document.createElement('li')
+    let btns = document.createElement('div')
+    li.className = 'li'
+    let text = document.createElement('p')
+    
+    text.textContent = name
+    text.className ='text'
+
+    li.append(text)
+    return{
+        li
+    }
+}
+
+
 function createList(b,c,owner_){
     for(let i = b; i<c;i++){
         console.log(mas[i])
@@ -67,7 +85,8 @@ function createList(b,c,owner_){
     }
     ul.addEventListener('submit',(a)=>{
         a.preventDefault()
-        appServerToDo(owner_)
+        appServer(owner_)
+        
     })
     // appServerToDo(owner_)
 }
