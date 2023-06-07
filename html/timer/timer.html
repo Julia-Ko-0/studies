@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>timer</title>
+</head>
+<body>
+    <p >Введите количество секунд:</p>
+    <input type="number" id="inputSeconds">
+    <button id="start">Старт</button>
+    <p id="timer">0</p>
+    <script>
+        let timer = document.getElementById('timer');
+        let input = document.getElementById('inputSeconds');
+        let start = document.getElementById('start');
+        function startTimer(i){
+            // if(i>0){
+            //     setInterval((i)=>{
+            //     timer.textContent=i
+            //     i--
+            // },1000)
+            // }
+            timer.textContent=i
+           
+            if (i == 0){
+                timer.textContent = "Время вышло"
+            }
+        }
+        console.log(input.value)
+        start.addEventListener("click",()=>{
+            let i = input.value
+            // for (i;i>0;i--){
+            //     // startTimer(i)
+            //     setInterval(()=>{
+            //     timer.textContent=i},1000)
+            // }
+            setInterval((i)=>{
+                console.log(i)
+                timer.textContent=i
+                i--
+            },1000)
+            
+            console.log("aaaaaa")
+        })
+    </script>
+</body>
+</html>

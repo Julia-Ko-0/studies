@@ -1,0 +1,20 @@
+<!DOCTYPE html> 
+<html> 
+<head>
+    <meta charset="utf-8">
+    <title>Задержка ввода</title> 
+</head> 
+<body> 
+    <input type="text" id="input"> 
+    <h2 id="output"></h2> 
+    <script> 
+        let input = document.getElementById('input'); 
+        let output = document.getElementById('output'); 
+        input.addEventListener('input', () => { 
+        setTimeout(() => { 
+        output.innerText = input.value; 
+        }, 300); 
+        }); 
+    </script> 
+</body> 
+</html> 

@@ -1,25 +1,8 @@
 let ul = document.getElementById('ul')
+let div = document.getElementById("btn")
 
-// async function createServer(nome,_id){
-//     const response = await fetch("http://localhost:3000/api/todos",{
-//         method:"POST",
-//         headers:{
-//             "Content-Type":"application/json"
-//         },
-//         body: JSON.stringify({
-//             name: nome,
-//             owner:_id,
-//             done: false
-//         }),
-
-//     })
-//     const app = await response.json()
-//     // .then((response)=>response.json())
-//     // .then((app)=> console.log(app))
-// }
-
-async function appServer(){
-    const response = await fetch("https://gorest.co.in/public-api/posts?page=10",{
+async function appServer(a){
+    const response = await fetch(`https://gorest.co.in/public-api/posts?page=${a}`,{
         method:"GET"
     })
     
@@ -27,7 +10,7 @@ async function appServer(){
     console.log(date)
     console.log('aaaa')
     for(let i = 0;i< 100;i++){
-        console.log('aaaa')
+        console.log('sds')
         // ids = date.data[i].id
         let elem = createBlog(date.data[i].title,date.data[i].id)
         
@@ -53,12 +36,12 @@ function createBlog(name,id){
     let li = document.createElement("li")
     let p = document.createElement("a")
     p.textContent = name
-    p.href = "index_2.html"
+    p.href = `index_2.html?id=${id}`
     li.append(p)
     ul.append(li)
-    p.addEventListener("click",()=>{
-        sessionStorage.setItem('ids', id)
-    })
+    // p.addEventListener("click",()=>{
+    //     sessionStorage.setItem('ids', id)
+    // })
     
 
 }
@@ -71,11 +54,42 @@ function createBlog2(title,bady){
     ul.append(body)
 
 }
+
+function createBtn(i){
+    
+        let btn = document.createElement("button")
+        btn.textContent = i
+        div.append(btn)
+        btn.href = `index.html?page=${i}`
+        btn.addEventListener("click",()=>{
+            
+            // console.log(a)
+            appServer(i)
+            
+            
+            
+            
+        })   
+        
+        
+}
 function appBlog(){
     // for(let i = 0;i<mas.length;i++){
     //     createServer(mas[i],owner)
     // }
-    appServer()
+    let id = new URLSearchParams(location.search).get("page")
+    // document.addEventListener("DOMContentLoaded",()=>{
+    //     let url = new URLSearchParams(location.search)
+    //     console.log(url)
+    //     appServer(url)
+    // }) 
+    for (let i = 1;i<10;i++){
+        createBtn(i)
+    }
+    // let p = createBlog()
+    // console.log(p.btn.textContent)
+    appServer(id)
+    
 
     // if(owner = 2){
     //     appServer2(cr.id)
@@ -86,8 +100,9 @@ function appBlog(){
     
 }
 function appBlog2(){
-    console.log(sessionStorage.getItem('ids'))
-    appServer2(sessionStorage.getItem('ids'))
+   let id = new URLSearchParams(location.search).get("id")
+   console.log(id)
+    appServer2(id)
     // let cr = createBlog()
     // console.log(cr.id)
     
