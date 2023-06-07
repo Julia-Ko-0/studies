@@ -1,0 +1,30 @@
+.body_div{
+    margin: 100px;
+}
+.table{
+    border:1px solid ;
+}
+.dv_enter{
+    position: fixed; /* фиксированное положение */
+    /* top: 1;
+    right: 100;
+    bottom: 0;
+    left: 200; */
+    margin-left: auto;
+    margin-right: auto;
+    background: rgba(0,0,0,0.5); /* фон */
+    z-index: 1050;
+    opacity: 0; /* по умолчанию модальное окно прозрачно */
+    -webkit-transition: opacity 200ms ease-in; 
+    -moz-transition: opacity 200ms ease-in;
+    transition: opacity 200ms ease-in; /* анимация перехода */
+    pointer-events: none; /* элемент невидим для событий мыши */
+    margin: 0;
+    padding: 0;
+}
+.dv_enter:target{
+    opacity: 1; /* делаем окно видимым */
+    pointer-events: auto; /* элемент видим для событий мыши */
+  overflow-y: auto;
+}
+/* .table_td */
