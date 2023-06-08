@@ -60,11 +60,12 @@ function createBtn(i){
         let btn = document.createElement("button")
         btn.textContent = i
         div.append(btn)
-        btn.href = `index.html?page=${i}`
+        // btn. = `index.html?page=${i}`
         btn.addEventListener("click",()=>{
-            
+            document.location= `index.html?page=${i}`
             // console.log(a)
-            appServer(i)
+            // let i = new URLSearchParams(location.search).get("page")
+            appServer(new URLSearchParams(location.search).get("page"))
             
             
             
@@ -74,16 +75,30 @@ function createBtn(i){
         
 }
 function appBlog(){
+    // replace(`index.html?page=${1}`)
     // for(let i = 0;i<mas.length;i++){
     //     createServer(mas[i],owner)
     // }
+    let str = document.getElementById("p")
+    
     let id = new URLSearchParams(location.search).get("page")
+    str.textContent = `Страница ${id}`
     // document.addEventListener("DOMContentLoaded",()=>{
     //     let url = new URLSearchParams(location.search)
     //     console.log(url)
     //     appServer(url)
     // }) 
-    for (let i = 1;i<10;i++){
+    let a
+    if(id<4){
+        a = 1
+    }
+    else{a=(id-2)}
+    if(id>=238){
+        a = 236
+    }
+    
+    for (let i = a;i<(a+5);i++){
+        // let a = new URLSearchParams(location.search).get("id")
         createBtn(i)
     }
     // let p = createBlog()

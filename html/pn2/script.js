@@ -118,10 +118,19 @@ function createNable_zn(name,sname,pname,date,nac_ob,_facul){
     let bt = document.createElement("button")
     bt.textContent = "удалить"
     bt.addEventListener('click',()=>{
+        console.log(name,sname,pname,_facul)
+        console.log(app)
         for(let i in app){
-            if(app[i]._name == name && app[i]._lastname == sname && app[i]._patronymic == pname && app[i]._date.chislo + "."+app[i]._date.mas +"."+app[i]._date.year== date && app[i].facul == _facul){
+            if(app[i]._name == name 
+                && app[i]._lastname == sname 
+                && app[i]._patronymic == pname 
+                && app[i]._facult == _facul
+                && `${app[i]._data.chislo}.${app[i]._data.mas}.${app[i]._data.year}`== date
+                ){
+                tr.remove()
+                console.log(`${app[i]._data.chislo}.${app[i]._data.mas}.${app[i]._data.year}`)
                 app.splice(i,1,)
-                localStorage.setItem("title", JSON.stringify(app))
+                localStorage.setItem("table", JSON.stringify(app))
             }
         }
         
@@ -140,15 +149,15 @@ function createNable_zn(name,sname,pname,date,nac_ob,_facul){
     table.append(tr)
     return tr
 }
-function otr(){
-    app = JSON.parse(localStorage.getItem("table"))
-   
-}
+
 function create_str(){
-    if(JSON.parse(localStorage.getItem("table"))==""){
+    let th_name = document.getElementById("nname")
+    console.log(JSON.parse(localStorage.getItem("table")))
+
+    if(JSON.parse(localStorage.getItem("table"))==null){
         localStorage.setItem("table", JSON.stringify(app))
         //    let table = document.getElementsByClassName("table")
-        otr()
+        app = JSON.parse(localStorage.getItem("table"))
         for(let i = 0;i<app.length; i++){
             let a=createTable(i)
             console.log("aaaa")
@@ -158,7 +167,7 @@ function create_str(){
         }
     }
     else{
-        otr()
+        app = JSON.parse(localStorage.getItem("table"))
         for(let i = 0;i<app.length; i++){
             let a=createTable(i)
             console.log("aaaa")
@@ -180,7 +189,8 @@ function create_str(){
             alert("Пожалуйста заполните все поля")
         }
         else{
-            cr_localStor(in_name.value,in_lname.value,pNane.value,date.value,date_nach.value,facult.value)
+            cr_localStor(in_name.value,in_lname.value,pNane.value,date.value.slice(0,2),date.value.slice(3,5),date.value.slice(6,10),date_nach.value,facult.value)
+            // chislo,_mes,_year,  earOb,facul
             createNable_zn(in_name.value,in_lname.value,pNane.value,date.value,date_nach.value,facult.value)
             in_name.value = "" 
             in_lname.value  = ""
@@ -189,12 +199,20 @@ function create_str(){
             date_nach.value  = ""
             facult.value = ""
             app = JSON.parse(localStorage.getItem("table"))
-            otr()
 
 
         }
         
 
+    })
+    th_name.addEventListener("click",()=>{
+        console.log("sdgsdrger")
+        app.sort((a,b)=>{
+            if(a._name < b._name) return -1
+            if(a._name> b._name) return 1
+        })
+        console.log(app)
+        
     })
    
 }
