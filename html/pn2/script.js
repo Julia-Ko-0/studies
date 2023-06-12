@@ -8,7 +8,7 @@ let app = [
             mas:"05",
             year:"2005"
         },
-        _nachOb:"02.10.2017",
+        _nachOb:"2017",
         _facult:"Информатика"
     },
     {
@@ -20,7 +20,7 @@ let app = [
             mas:"05",
             year:"2002"
         },
-        _nachOb:"09.07.2017",
+        _nachOb:"2017",
         _facult:"Математика"
     },
     {
@@ -32,7 +32,7 @@ let app = [
             mas:"10",
             year:"2003"
         },
-        _nachOb:"07.11.2020",
+        _nachOb:"2020",
         _facult:"История"
     }
 ]
@@ -99,7 +99,8 @@ function createTable(i,masiv){
     // return tr
     
 }
-let trr = document.getElementById("trr")
+let trr = document.createElement("tr")
+trr.id = "trr"
 function createNable_zn(name,sname,pname,date,nac_ob,_facul,masiv){
 
     let td1 = document.createElement('td')
@@ -160,9 +161,86 @@ function createNable_zn(name,sname,pname,date,nac_ob,_facul,masiv){
     table.append(trr)
     return tr
 }
+function crTabl2(mas){
+    let trr = document.getElementById("trr")
+           
+           
+    trr.remove()
+    console.log("sssssssssssss")
+
+        // for(let i = 0;i<app.length; i++){
+        //     let a=createTable(i,mas)
+        //     console.log("aaaa")
+        //     console.log(a)
+        //     createNable_zn(a.name,a.lName,a.patrName,a.date,a.nac_ob,a.facul)
+            
+        // }
+ let table = document.getElementById("table")
+ for(let i = 0; i<mas.length; i++){
+            
+        
+        let td1 = document.createElement('td')
+        let td2 = document.createElement('td')
+        let td3 = document.createElement('td')
+        let td4 = document.createElement('td')
+        let td5 = document.createElement('td')
+        let td6 = document.createElement('td')
+        let td7 = document.createElement('td')
+        let tr2 = document.createElement('tr')
+        td1.innerText = mas[i]._name
+        td2.innerText = mas[i]._lastname
+        td3.innerText = mas[i]._patronymic
+        td4.innerText = mas[i]._data.chislo +"."+mas[i]._data.mas +"."+ mas[i]._data.year
+        td5.innerText = mas[i]._nachOb
+        td6.innerText = mas[i]._facult
+
+         td1.className = "td" ,"td1"
+         td2.className = "td"
+         td3.className = "td"
+         td4.className = "td"
+         td5.className = "td"
+         td6.className = "td"
+     let bt = document.createElement("button")
+     bt.textContent = "удалить"
+     bt.addEventListener('click',()=>{
+         for(let i in app){
+             if(app[i]._name == td1.innerText
+                 && app[i]._lastname == td2.innerText 
+                 && app[i]._patronymic == td3.innerText
+                 && app[i]._facult == td6.innerText
+                 ){
+                 console.log(td1.innerText)
+                 tr2.remove()
+                 app.splice(i,1,)
+                 localStorage.setItem("table", JSON.stringify(app))
+             }
+         }
+         
+     })
+    
+       td7.append(bt)
+        tr2.append(td1)
+        tr2.append(td2)
+        tr2.append(td3)
+        tr2.append(td4)
+        tr2.append(td5)
+        tr2.append(td6)
+        tr2.append(td7)
+        trr.append(tr2)
+        table.append(tr2)
+    }
+}
 
 function create_str(){
     let th_name = document.getElementById("nname")
+    let  th_pname = document.getElementById("pname")
+    let  th_lname = document.getElementById("lname")
+    let th_data = document.getElementById("dataa")
+    let th_dOb = document.getElementById("dOb")
+    let th_fa = document.getElementById("fa")
+    
+  
+
     console.log(JSON.parse(localStorage.getItem("table")))
     console.log("")
     if(JSON.parse(localStorage.getItem("table"))==null){
@@ -216,37 +294,145 @@ function create_str(){
         
 
     })
+    let d = 0
     th_name.addEventListener("click",()=>{
-        console.log("sdgsdrger")
-        let t = document.getElementsByClassName("tr")
-        trr.remove()
-        // for(let i = 0;i<mas.length; i++){
-        //     let a=createTable(i)
-        //     console.log("aaaa")
-        //     console.log(a)
-        //     createNable_zn(a.name,a.lName,a.patrName,a.date,a.nac_ob,a.facul)
-            
-        // }
-        
-        let mas = app.sort((a,b)=>{
-            if(a._name < b._name) return -1
-            if(a._name> b._name) return 1
-        })
-        console.log(mas)
-        let td1 = document.createElement('td')
-        // for(let i = 0;i<mas.length;i++){
-        //     console.log("aaaa")
-        //     let a = mas[i]
-        //     createNable_zn(a._name,a._lastname,a._patronymic,`${a._data.chislo}${a._data.mas}${a._data.year}`,a._nachOb,a._patronymic,mas)
-        // }
-        //  for(let i = 0;i<mas.length; i++){
-        //     let a=createTable(i,mas)
-        //     console.log("aaaa")
-        //     console.log(a)
-        //     createNable_zn(a.name,a.lName,a.patrName,a.date,a.nac_ob,a.facul)
-            
-        // }
-        
+        if(d == 0){
+            d = 1   
+               let mas = app.sort((a,b)=>{
+                   if(a._name < b._name) return -1
+                   if(a._name> b._name) return 1
+               })
+               console.log(mas)
+               crTabl2(mas)
+           }  
+           else{
+               d = 0
+               trr.remove()
+               console.log("jjjjjjjjjjjjjjjjjjjjjjjjjj")
+               window.location.reload ()
+           }
     })
+    th_pname.addEventListener("click",()=>{
+        if(d == 0){
+            d = 1   
+           
+         
+           
+            console.log("sdgsdrger")
+               let mas = app.sort((a,b)=>{
+                   if(a._lastname < b._lastname) return -1
+                   if(a._lastname> b._lastname) return 1
+               })
+               console.log(mas)
+               crTabl2(mas)
+           }  
+           else{
+               d = 0
+               trr.remove()
+               console.log("jjjjjjjjjjjjjjjjjjjjjjjjjj")
+               window.location.reload ()
+           }
+           
+       })
+       th_lname.addEventListener("click",()=>{
+        if(d == 0){
+            d = 1   
+           
+         
+           
+            console.log("sdgsdrger")
+               let mas = app.sort((a,b)=>{
+                   if(a._patronymic < b._patronymic) return -1
+                   if(a._patronymic> b._patronymic) return 1
+               })
+               console.log(mas)
+               crTabl2(mas)
+           }  
+           else{
+               d = 0
+               trr.remove()
+               console.log("jjjjjjjjjjjjjjjjjjjjjjjjjj")
+               window.location.reload ()
+           }
+           
+       })
+       th_data.addEventListener("click",()=>{
+        if(d == 0){
+            d = 1   
+           
+         
+           
+            console.log("sdgsdrger")
+                let mas = app.sort((a,b)=>{
+                    if(a._data.year < b._data.year) return -1
+                    if(a._data.year> b._data.year) return 1
+                    if(a._data.year = a._data.year){
+                        if(a._data.mas < ba._data.mas) return -1
+                        if(a._data.mas > ba._data.mas) return 1
+                        if(a._data.mas = ba._data.mas){
+                            if(a._data.chislo < ba._data.chislo) return -1
+                            if(a._data.chislo > ba._data.chislo) return 1
+                        }
+                    }
+               })
+               console.log(mas)
+               crTabl2(mas)
+           }  
+           else{
+               d = 0
+               trr.remove()
+               console.log("jjjjjjjjjjjjjjjjjjjjjjjjjj")
+               window.location.reload ()
+           }
+           
+       })
+       th_dOb.addEventListener("click",()=>{
+        if(d == 0){
+            d = 1   
+           
+         
+           
+            console.log("sdgsdrger")
+                let mas = app.sort((a,b)=>{
+                    if(a._nachOb < b._nachOb) return -1
+                    if(a._nachOb > b._nachOb) return 1
+                    
+               })
+               console.log(mas)
+               crTabl2(mas)
+           }  
+           else{
+               d = 0
+               trr.remove()
+               console.log("jjjjjjjjjjjjjjjjjjjjjjjjjj")
+               window.location.reload ()
+           }
+           
+       })
+       th_fa.addEventListener("click",()=>{
+        if(d == 0){
+            d = 1   
+           
+         
+           
+            console.log("sdgsdrger")
+                let mas = app.sort((a,b)=>{
+                    if(a._facult < b._facult) return -1
+                    if(a._facult > b._facult) return 1
+                    
+               })
+               console.log(mas)
+               crTabl2(mas)
+           }  
+           else{
+               d = 0
+               trr.remove()
+               console.log("jjjjjjjjjjjjjjjjjjjjjjjjjj")
+               window.location.reload ()
+           }
+           
+       })
+
+
    
 }
