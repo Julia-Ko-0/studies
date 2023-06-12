@@ -1,0 +1,71 @@
+.body_div{
+    margin: 100px;
+}
+.table{ 
+    border:1px solid ;
+    width: 625px; 
+    caption-side: bottom;
+    text-align: right;
+    padding: 1px 0;
+    font-size: 15px;
+    border: 1px solid rgb(39, 37, 37);
+}
+/* .tr{
+    width: 2px;
+}  */
+.name{
+    width: 95px;
+    text-align: left;
+}
+.pname{
+    width: 98px;
+    text-align: left;
+}
+.lname{
+    width: 100px;
+    text-align: left;
+}
+.dataa{
+    width: 98px;
+    text-align: left;
+}
+.dOb{
+    width: 98px;
+    text-align: left;
+}
+.fa{
+    width: 95px;
+    text-align: left;
+}
+.dv_enter{
+    position: fixed; /* фиксированное положение */
+    /* top: 1; */
+    /* right: 100000000; */
+    /* bottom: 10000; */
+    /* left: 20; */
+    /* margin-left: auto;
+    margin-right: 0; */
+    /* margin-right: 0em; */
+    background: rgba(0,0,0,0.5); /* фон */
+    z-index: 1050;
+    opacity: 0; /* по умолчанию модальное окно прозрачно */
+    -webkit-transition: opacity 200ms ease-in; 
+    -moz-transition: opacity 200ms ease-in;
+    transition: opacity 200ms ease-in; /* анимация перехода */
+    pointer-events: none; /* элемент невидим для событий мыши */
+    margin: 0;
+    padding: 0;
+}
+.dv_enter:target{
+    opacity: 1; /* делаем окно видимым */
+    pointer-events: auto; /* элемент видим для событий мыши */
+  overflow-y: auto;
+}
+.td{
+    width:  100px;
+}
+.td,th{
+    border: 1px solid rgb(39, 37, 37); 
+    /* width: 400px; */
+}
+

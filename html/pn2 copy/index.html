@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+   
+</head>
+<body>
+    <div id="body_div" class="body_div">
+        <div id="dv_enter" class="dv_enter">
+            <p class="name">Имя</p>
+            <input id="name">
+            <p>Фамилия</p><input id="in_s_name">
+            <p>Отчество</p><input id="in_p_name">
+            <p>Дата рождения</p><input id="date">
+            <p>год начала обучения</p><input id="date_ob">
+            <p>Факультет</p><input id="fac">
+            <button id="button"onclick="window.location.href ='#close'">Сохранить</button>
+        </div>
+        <button onclick="window.location.href ='#dv_enter'">Добавить запись</button>
+        <br>
+        <div id="table">
+            <table class="table" id="table">
+                <tr class="tr">
+                    <th id="nname" class="name">Имя</th>
+                    <th class="pname" id="pname">Фамилия</th>
+                    <th class="lname" id="lname">Отчество</th>
+                    <th class="dataa" id="dataa">Дата рождения</th>
+                    <th class="dOb" id="dOb">год начала обучения</th>
+                    <th class="fa" id="fa">Факультет</th>
+                </tr>
+                <!-- <tr id="trr">
+
+                </tr> -->
+                
+            </table>
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded",()=>{
+            create_str()
+            // createTable(1)
+        })
+    </script>
+</body>
+</html>
