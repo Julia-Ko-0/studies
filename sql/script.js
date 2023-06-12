@@ -22,6 +22,8 @@ function updateItems(){
         console.log(results); // собственно данные
         console.log(fields); // мета-данные полей 
     });
+    connection.end();
     console.log(res)
+    
 }
 updateItems()
