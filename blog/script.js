@@ -15,7 +15,7 @@ async function appServer(a){
         let elem = createBlog(date.data[i].title,date.data[i].id)
         
         
-      
+        
       
     }
 }

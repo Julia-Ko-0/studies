@@ -1,8 +1,41 @@
 .body_div{
     margin: 100px;
 }
-.table{
+.table{ 
     border:1px solid ;
+    width: 625px; 
+    caption-side: bottom;
+    text-align: right;
+    padding: 1px 0;
+    font-size: 15px;
+    border: 1px solid rgb(39, 37, 37);
+}
+/* .tr{
+    width: 2px;
+}  */
+.name{
+    width: 95px;
+    text-align: left;
+}
+.pname{
+    width: 98px;
+    text-align: left;
+}
+.lname{
+    width: 100px;
+    text-align: left;
+}
+.dataa{
+    width: 98px;
+    text-align: left;
+}
+.dOb{
+    width: 98px;
+    text-align: left;
+}
+.fa{
+    width: 95px;
+    text-align: left;
 }
 .dv_enter{
     position: fixed; /* фиксированное положение */
@@ -28,4 +61,13 @@
     pointer-events: auto; /* элемент видим для событий мыши */
   overflow-y: auto;
 }
-/* .table_td */
+.td{
+    width:  100px;
+}
+.td,th{
+    border: 1px solid rgb(39, 37, 37); 
+    /* width: 400px; */
+}
+/* .td1{
+     width: 10000px;
+} */ */

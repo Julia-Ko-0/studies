@@ -54,8 +54,8 @@ function cr_localStor(name,lname,pname,_chislo,_mes,_year,yearOb,facul){
     localStorage.setItem("table", JSON.stringify(app))
 
 }
-function createTable(i){
-    let obj = app[i]
+function createTable(i,masiv){
+    let obj = masiv[i]
     let name = obj._name
     let lName = obj._lastname
     let patrName = obj._patronymic
@@ -99,7 +99,8 @@ function createTable(i){
     // return tr
     
 }
-function createNable_zn(name,sname,pname,date,nac_ob,_facul){
+let trr = document.getElementById("trr")
+function createNable_zn(name,sname,pname,date,nac_ob,_facul,masiv){
 
     let td1 = document.createElement('td')
     let td2 = document.createElement('td')
@@ -109,6 +110,15 @@ function createNable_zn(name,sname,pname,date,nac_ob,_facul){
     let td6 = document.createElement('td')
     let td7 = document.createElement('td')
     let tr = document.createElement('tr')
+    td1.className = "td" ,"td1"
+    td2.className = "td"
+    td3.className = "td"
+    td4.className = "td"
+    td5.className = "td"
+    td6.className = "td"
+    td7.className = "td"
+    tr.className = "tr"
+
     td1.innerText = name
     td2.innerText = sname
     td3.innerText = pname
@@ -120,16 +130,16 @@ function createNable_zn(name,sname,pname,date,nac_ob,_facul){
     bt.addEventListener('click',()=>{
         console.log(name,sname,pname,_facul)
         console.log(app)
-        for(let i in app){
-            if(app[i]._name == name 
-                && app[i]._lastname == sname 
-                && app[i]._patronymic == pname 
-                && app[i]._facult == _facul
-                && `${app[i]._data.chislo}.${app[i]._data.mas}.${app[i]._data.year}`== date
+        for(let i in masiv){
+            if(masiv[i]._name == name 
+                && masiv[i]._lastname == sname 
+                && masiv[i]._patronymic == pname 
+                && masiv[i]._facult == _facul
+                && `${masiv[i]._data.chislo}.${masiv[i]._data.mas}.${masiv[i]._data.year}`== date
                 ){
                 tr.remove()
-                console.log(`${app[i]._data.chislo}.${app[i]._data.mas}.${app[i]._data.year}`)
-                app.splice(i,1,)
+                console.log(`${masiv[i]._data.chislo}.${masiv[i]._data.mas}.${masiv[i]._data.year}`)
+                masiv.splice(i,1,)
                 localStorage.setItem("table", JSON.stringify(app))
             }
         }
@@ -146,33 +156,34 @@ function createNable_zn(name,sname,pname,date,nac_ob,_facul){
     tr.appendChild(td5)
     tr.appendChild(td6)
     tr.appendChild(td7)
-    table.append(tr)
+    trr.append(tr)
+    table.append(trr)
     return tr
 }
 
 function create_str(){
     let th_name = document.getElementById("nname")
     console.log(JSON.parse(localStorage.getItem("table")))
-
+    console.log("")
     if(JSON.parse(localStorage.getItem("table"))==null){
         localStorage.setItem("table", JSON.stringify(app))
         //    let table = document.getElementsByClassName("table")
         app = JSON.parse(localStorage.getItem("table"))
         for(let i = 0;i<app.length; i++){
-            let a=createTable(i)
+            let a=createTable(i,app)
             console.log("aaaa")
             console.log(a)
-            createNable_zn(a.name,a.lName,a.patrName,a.date,a.nac_ob,a.facul)
+            createNable_zn(a.name,a.lName,a.patrName,a.date,a.nac_ob,a.facul,app)
             
         }
     }
     else{
         app = JSON.parse(localStorage.getItem("table"))
         for(let i = 0;i<app.length; i++){
-            let a=createTable(i)
+            let a=createTable(i,app)
             console.log("aaaa")
             console.log(a)
-            createNable_zn(a.name,a.lName,a.patrName,a.date,a.nac_ob,a.facul)
+            createNable_zn(a.name,a.lName,a.patrName,a.date,a.nac_ob,a.facul,app)
             
         }
     }
@@ -191,7 +202,7 @@ function create_str(){
         else{
             cr_localStor(in_name.value,in_lname.value,pNane.value,date.value.slice(0,2),date.value.slice(3,5),date.value.slice(6,10),date_nach.value,facult.value)
             // chislo,_mes,_year,  earOb,facul
-            createNable_zn(in_name.value,in_lname.value,pNane.value,date.value,date_nach.value,facult.value)
+            createNable_zn(in_name.value,in_lname.value,pNane.value,date.value,date_nach.value,facult.value,app)
             in_name.value = "" 
             in_lname.value  = ""
             pNane.value  = ""
@@ -207,11 +218,34 @@ function create_str(){
     })
     th_name.addEventListener("click",()=>{
         console.log("sdgsdrger")
-        app.sort((a,b)=>{
+        let t = document.getElementsByClassName("tr")
+        trr.remove()
+        // for(let i = 0;i<mas.length; i++){
+        //     let a=createTable(i)
+        //     console.log("aaaa")
+        //     console.log(a)
+        //     createNable_zn(a.name,a.lName,a.patrName,a.date,a.nac_ob,a.facul)
+            
+        // }
+        
+        let mas = app.sort((a,b)=>{
             if(a._name < b._name) return -1
             if(a._name> b._name) return 1
         })
-        console.log(app)
+        console.log(mas)
+        let td1 = document.createElement('td')
+        // for(let i = 0;i<mas.length;i++){
+        //     console.log("aaaa")
+        //     let a = mas[i]
+        //     createNable_zn(a._name,a._lastname,a._patronymic,`${a._data.chislo}${a._data.mas}${a._data.year}`,a._nachOb,a._patronymic,mas)
+        // }
+        //  for(let i = 0;i<mas.length; i++){
+        //     let a=createTable(i,mas)
+        //     console.log("aaaa")
+        //     console.log(a)
+        //     createNable_zn(a.name,a.lName,a.patrName,a.date,a.nac_ob,a.facul)
+            
+        // }
         
     })
    
