@@ -9,9 +9,10 @@
     padding: 1px 0;
     font-size: 15px;
     border: 1px solid rgb(39, 37, 37);
+    background-color: rgb(213, 245, 234);
 }
-/* .tr{
-    width: 2px;
+/* .trr{
+    background-color: rgb(213, 245, 234);
 }  */
 .name{
     width: 95px;
@@ -60,6 +61,7 @@
     opacity: 1; /* делаем окно видимым */
     pointer-events: auto; /* элемент видим для событий мыши */
   overflow-y: auto;
+  background-color: rgb(186, 192, 197);
 }
 .td{
     width:  100px;

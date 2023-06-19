@@ -190,4 +190,14 @@
 
 // console.log(menu)
 
-
+let a = {
+    name:'Ola',
+    sname:"Petrova",
+    predmet:"history",
+    ocenks:"4"
+}
+function crOb(obj,sv){
+    console.log(obj[sv])
+}
+crOb(a,'sname')
+// console.log(a.name)

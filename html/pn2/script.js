@@ -273,9 +273,42 @@ function create_str(){
     let date_nach=document.getElementById("date_ob")
     let facult =document.getElementById("fac")
     let but = document.getElementById("button")
+    date.addEventListener("input",()=>{
+        if(date.value.length == 2){
+            date.value = date.value +"."
+        }
+        if(date.value.length == 5){
+            date.value = date.value +"."
+        }
+        if(date.value.length == 10){
+            date.disabled = true
+        }
+    })
+    date_nach.addEventListener("input",()=>{
+        if(date_nach.value.length == 4){
+            date_nach.disabled = true
+        }
+    })
     but.addEventListener("click",()=>{
-        if(in_name.value == "" || in_lname.value  == ""|| pNane.value  == ""|| date.value  == ""|| date_nach.value  == ""|| facult.value == ""){
+        if( in_name.value == "" || in_lname.value  == ""|| pNane.value  == ""|| date.value  == ""|| date_nach.value  == ""|| facult.value == ""){
+            date_nach.disabled = false
+            date.disabled = false
             alert("Пожалуйста заполните все поля")
+        }
+        if(typeof in_name.value != 'string' ){
+            alert("Имя введите БУКВАМИ")
+        }
+        if(typeof in_lname.value != 'string'){
+            alert("Фамилия введите БУКВАМИ")
+        }
+        if(typeof pNane.value != 'string'){
+            alert("Отчество введите БУКВАМИ")
+        }
+        if(date_nach.value.length != 4){
+            alert("Введите дату начала обучения правильно")
+        }
+        if(date_nach.value.length != 4){
+            alert("Введите дату начала обучения правильно")
         }
         else{
             cr_localStor(in_name.value,in_lname.value,pNane.value,date.value.slice(0,2),date.value.slice(3,5),date.value.slice(6,10),date_nach.value,facult.value)
