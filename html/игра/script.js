@@ -3,17 +3,12 @@ heading.innerHTML = 'Игра'
 heading.className = 'play'
 let ul = document.createElement("ul")
 ul.className = "block"
-let mas_ch_1 = []
-let mas_ch_2 = []
-let mas_ch_3 = []
-function timer(time){
-    setInterval(()=>{
-        time--
-        
-    },1000)
-}
+let mas_ch_1 = []//
+let mas_ch_2 = []//масивы с перемеш числами без повторений
+let mas_ch_3 = []//масив с всеми значениями
 
-function createApp(kolVo){
+
+function createApp(kolVo){//
     while(mas_ch_3.length<kolVo){
         if(mas_ch_1.length<kolVo/2 ){
             let chislo = Math.floor( Math.random() * (kolVo/2)+1)
@@ -39,36 +34,30 @@ function createApp(kolVo){
     }
    
 }
-let coun = 0 
-let el1 = ""
-let el2 = ""
-let id_ = -1
-let win_id =""
-let win = 0
+let coun = 0 //сколько наэатий было
+let el1 = ""//
+let el2 = ""//
+let id_ = 1//айди при создании карты
+let win_id =""//айди 1 карточки для смены цвета если они совпали
+let win = 0//счетчик побед
 
 function createElementLi (el,kol_Vo){
     let div = document.createElement("div")
     div.className = 'div'
-   div.id = id_
-    
+    div.id = id_
+
     let text = document.createElement('p')
     text.textContent = el
     text.className ='text'
-    let span = document.createElement("span")
-    span.className = "li"
+
     div.append(text)
-    div.append(span)
-   id_++
+    id_++
     div.addEventListener("click", ()=>{
-        
-            console.log('sdfsf')
+    
             if(coun < 2) {
-                console.log('d')
                 coun++
                 if(coun === 1){
                     el1 = el
-                    console.log(el)
-                    console.log(div.id)
                     div.style.backgroundColor = 'rgb(255, 255, 255)'
                    div.classList.add('off')
                     win_id = div.id 
@@ -110,24 +99,18 @@ function createElementLi (el,kol_Vo){
                     
         })
     return {
-        div,
-        text,
-        span
+        div
     }
 }
-//
+
 function appSpisok(kolVo){
     let kol_vo = kolVo/2
     let container = document.getElementById('container')
     let elemLi = createElementLi()
     let crApp = createApp(kolVo)
     container.append(heading)
-    console.log(mas_ch_3)
-    
-    console.log(mas_ch_1)
-    console.log(mas_ch_2)
     for(let i = 0; i < kolVo;i++){
-        let elem_ =createElementLi(crApp.mas_ch_3[i],kol_vo)
+        let elem_ = createElementLi(crApp.mas_ch_3[i],kol_vo)
        elemLi.div.id = i
         ul.append(elem_.div)
         container.append(ul)
@@ -138,8 +121,5 @@ function appSpisok(kolVo){
     buttom.addEventListener("click",()=>{
         location.reload()
     })   
-    let time = document.createElement("p")
-    container.append(time)
-    time.textContent = 100
-    timer(time.textContent)
+   
 }
