@@ -1,0 +1,23 @@
+.sq{
+    width: 100px;
+    height: 100px;
+    background-color: aqua;
+}
+.cv{
+    width: 100px;
+    height: 100px;
+    background-color: aqua;
+}
+.sq2{
+    width: 100px;
+    height: 100px;
+    background-color: rgb(255, 0, 0);
+}
+.sq2:hover{
+    background-color: rgb(0, 255, 85);
+}
+.sq3{
+    width: 100px;
+    height: 100px;
+    /* background: 'red'; */
+}
