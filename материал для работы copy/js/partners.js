@@ -27,8 +27,8 @@ const  renderItem = (date)=>{
 
     });
 }
-fetch('./db/partners.json').then((response)=> response.json()).then((date)=>{
+fetch("./db/partners.json").then((response)=> response.json()).then((date)=>{
     renderItem(date)
 }).catch((error)=>{
-    
+
 })
