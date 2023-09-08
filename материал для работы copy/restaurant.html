@@ -8,6 +8,8 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap&subset=cyrillic" rel="stylesheet" />
 	<link rel="stylesheet" href="css/normalize.css" />
 	<link rel="stylesheet" href="css/style.css" />
+	<script src="./js/main.js" defer></script>
+	<script src="./js/partners.js" defer></script>
 </head>
 
 <body>
@@ -25,13 +27,16 @@
 					<span class="button-auth-svg"></span>
 					<span class="button-text">Войти</span>
 				</button>
-				<button class="button button-cart" id="cart-button">
+				<button class="button button-primary button-cart" id="cart-button">
+					<img src="img/icon/shopping-cart-white.svg" alt="Logo">
 					<span class="button-cart-svg"></span>
 					<span class="button-text">Корзина</span>
 				</button>
 				<button class="button button-primary button-out">
+					<img src="img/icon/logout.svg" width="15" height="15" alt="Logo">
 					<span class="button-text">Выйти</span>
 					<span class="button-out-svg"></span>
+					
 				</button>
 			</div>
 		</header>
@@ -305,6 +310,11 @@
 					<label class="label-auth">
 						<span>Пароль</span>
 						<input id="password" type="password">
+					</label>
+					<label class="label-auth">
+						<label type="checkbox">   <input id="checkMark" type="checkbox" name="pY"
+							> Запомнить меня? </label>
+						
 					</label>
 				</fieldset>
 				<!-- /.modal-body -->
