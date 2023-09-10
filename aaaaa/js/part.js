@@ -1,9 +1,10 @@
 const menu = document.querySelector(".cards-restaurants")
 
+console.log("asdad")
 
 const  renderItem = (date)=>{
     date.forEach(({name,time_of_delivery,stars,price,kitchen,image,products} )=> {
-       let a = document.childElement('a')
+       let a = document.createElement('a')
        a.setAttribute('href','/restaurant.html')
        a.classList.add('card')
        a.classList.add('card-restaurant')
@@ -27,8 +28,7 @@ const  renderItem = (date)=>{
 
     });
 }
-fetch("./db/partners.json").then((response)=> response.json()).then((date)=>{
-    renderItem(date)
-}).catch((error)=>{
+fetch('https://tast-b6a5a-default-rtdb.firebaseio.com/db/partners.json',{method:"GET"})
+.then((res)=>res.json())
+.then((date)=>renderItem(date));
 
-})
