@@ -11,6 +11,7 @@
         let input = document.getElementById('input'); 
         let output = document.getElementById('output'); 
         input.addEventListener('input', () => { 
+            console.log(input.value)
         setTimeout(() => { 
         output.innerText = input.value; 
         }, 300); 

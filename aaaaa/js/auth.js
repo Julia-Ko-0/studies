@@ -11,6 +11,8 @@ const cart = document.getElementById("cart-button")
 const modalCart = document.querySelector(".modal-cart")
 let mas = []
 const exitBtnCars = document.querySelector(".close")
+const poiskInp = document.querySelector(".input-search")
+
 
 butAut.addEventListener('click',() => {
     modalAut.style.display = 'flex'
@@ -23,8 +25,9 @@ butExit.addEventListener('click',()=>{
 
 loForm.addEventListener("submit",(a)=>{
     a.preventDefault()
-    if(inpLog.value == ''){
-      
+    if(inpLog.value == '' || inpLog.value == null){
+      alert("введите логин")
+      return
     }
     loginOut(inpLog.value)
     if(checkMark.checked){

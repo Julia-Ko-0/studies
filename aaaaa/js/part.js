@@ -32,3 +32,26 @@ const  renderItem = (date)=>{
 fetch(`https://tast-b6a5a-default-rtdb.firebaseio.com/db/${par}.json`,{method:"GET"})
 .then((res)=>res.json())
 .then((date)=>renderItem(date));
+
+let Inp = document.getElementById("input-search")
+let app = []
+Inp.addEventListener('input', () => {
+	let cards = document.querySelectorAll('.card-restaurant')
+	// app.append(cards)
+	console.log(cards)
+	for(let i = 0;i<cards.length;i++){
+		
+		let nm = document.querySelectorAll('.category')
+		if(nm[i].textContent.toLowerCase() != Inp.value){
+			cards[i].remove()
+
+		}
+	}
+	
+	// cards.map((app)=>{
+	// 	app.fi
+	// })
+	
+//    cards.remove()
+//    crHeading(appRes)
+})

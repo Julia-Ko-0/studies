@@ -5,6 +5,7 @@ let masiv =[]
 let usName = document.querySelector('.user-name')
 let priceCard = document.querySelector('.modal-pricetag')
 let btnZK = document.querySelector('.btnZK')
+let app
 
 btnZK.addEventListener('click',()=>{
     if(confirm("fdg")){
@@ -26,11 +27,12 @@ function crHeading(date){
         }
     } 
 }
+
+
 function crCors(name,price,quantity){
     let cr = document.createElement('div')
     cr.classList.add('food-row')
     cr.innerHTML=`
-            
 					<span class="food-name">${name}</span>
 					<strong class="food-price">${price}</strong>
 					<div class="food-counter">
@@ -43,12 +45,17 @@ function crCors(name,price,quantity){
     priceCard.textContent = Number(priceCard.textContent) + (price * quantity)
     cr.querySelector('.button-').addEventListener('click',()=>{
         cr.querySelector('.quan').textContent--
+        if(cr.querySelector('.quan').textContent == 0){
+            console.log("dsada")
+            cr.remove()
+        }
         masiv = JSON.parse(localStorage.getItem(`card${usName.textContent}`))
         for(let i = 0;i<masiv.length ;i++){
             if(masiv[i].name == name){
                 masiv[i].quantity--
                 if(masiv[i].quantity == 0){
                     masiv.splice(i,1,)
+                    
                 }
                 localStorage.setItem(`card${usName.textContent}`, JSON.stringify(masiv))
                 
@@ -68,6 +75,7 @@ function crCors(name,price,quantity){
     })
 
 }
+
 if (localStorage.getItem(`card${usName.textContent}`)){
     console.log("asdasdfasdf")
     masiv = JSON.parse(localStorage.getItem(`card${usName.textContent}`))
@@ -77,7 +85,12 @@ if (localStorage.getItem(`card${usName.textContent}`)){
        
 
 }
+let fd_row = document.querySelectorAll('.food-row')
+
+
 function cardAdd(name,price,quantity){
+    let quan = document.querySelectorAll('.quan')
+    let food_name = document.querySelectorAll('.food-name')
     if (localStorage.getItem(`card${usName.textContent}`)){
         masiv = JSON.parse(localStorage.getItem(`card${usName.textContent}`))
         console.log(masiv)
@@ -85,7 +98,15 @@ function cardAdd(name,price,quantity){
             if(masiv[i].name == name){
                 masiv[i].quantity++
                 localStorage.setItem(`card${usName.textContent}`, JSON.stringify(masiv))
-             return   
+                console.log(food_name)
+                for(let p = 0;p<food_name.length;p++){
+                    console.log("[pweor")
+                    if(food_name[p].textContent == name){
+                        console.log(quan[p])
+                        quan[p].textContent++
+                    }
+                }
+                return   
             }
         }
        
@@ -126,16 +147,19 @@ function crMenu(date){
         })
     });
 }
+
 fetch(`https://tast-b6a5a-default-rtdb.firebaseio.com/db/partners.json`,{method:"GET"})
 .then((res)=>res.json())
 .then((date)=>{
+    
     crHeading(date)
-    console.log(date)
+   
 });
 
 fetch(`https://tast-b6a5a-default-rtdb.firebaseio.com/db/${rest}`,{method:"GET"})
 .then((res)=>res.json())
 .then((date)=>{
     crMenu(date)
+    
 });
 
