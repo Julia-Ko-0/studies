@@ -37,21 +37,16 @@ let Inp = document.getElementById("input-search")
 let app = []
 Inp.addEventListener('input', () => {
 	let cards = document.querySelectorAll('.card-restaurant')
-	// app.append(cards)
 	console.log(cards)
+	let nm = document.querySelectorAll('.category')
 	for(let i = 0;i<cards.length;i++){
-		
-		let nm = document.querySelectorAll('.category')
-		if(nm[i].textContent.toLowerCase() != Inp.value){
+		if(nm[i].textContent.toLowerCase().includes(Inp.value) == false){
+			console.log(nm[i].textContent.toLowerCase())
 			cards[i].remove()
 
 		}
 	}
-	
-	// cards.map((app)=>{
-	// 	app.fi
-	// })
-	
-//    cards.remove()
-//    crHeading(appRes)
+	if(Inp.value == ''){
+		location.reload()
+	}
 })
