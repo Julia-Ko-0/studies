@@ -24,12 +24,6 @@ exit.addEventListener('click',()=>{
             fr[i].remove()
         }
 })
-// function serv(arrey){
-//     fetch("https://tast-b6a5a-default-rtdb.firebaseio.com/db/",{
-//         method:"POST",
-//         body:JSON.stringify({arrey})
-//     })
-// }
 function serv(arrey){
     fetch("https://jsonplaceholder.typicode.com/posts",{
         method:"POST",

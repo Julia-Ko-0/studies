@@ -53,6 +53,7 @@ fetch(`https://tast-b6a5a-default-rtdb.firebaseio.com/db/partners.json`,{method:
 .then((date)=>{
     
     crHeading(date)
+    
    
 });
 
