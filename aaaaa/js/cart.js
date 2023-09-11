@@ -2,8 +2,9 @@ const carsMenu = document.querySelector(".modal-body")
 let usName = document.querySelector('.user-name')
 let priceCard = document.querySelector('.modal-pricetag')
 let btnZK = document.querySelector('.btnZK')
+const exit = document.querySelector('.clear-cart')
 btnZK.addEventListener('click',()=>{
-    if(confirm("fdg")){
+    if(confirm("вы уверены")){
         let arr = JSON.parse(localStorage.getItem(`card${usName.textContent}`))
         serv(arr)
         localStorage.removeItem(`card${usName.textContent}`)
@@ -14,6 +15,14 @@ btnZK.addEventListener('click',()=>{
         }
         
     }
+})
+exit.addEventListener('click',()=>{
+    localStorage.removeItem(`card${usName.textContent}`)
+    let fr = document.querySelectorAll('.food-row')
+        for(let i in fr){
+            console.log(fr[i])
+            fr[i].remove()
+        }
 })
 // function serv(arrey){
 //     fetch("https://tast-b6a5a-default-rtdb.firebaseio.com/db/",{
