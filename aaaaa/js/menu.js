@@ -2,17 +2,7 @@ let selector = document.querySelector('.section-heading')
 let rest =  new URLSearchParams(location.search).get("page")
 const menu = document.querySelector('.cards-menu')
 let masiv =[]
-let usName = document.querySelector('.user-name')
-let priceCard = document.querySelector('.modal-pricetag')
-let btnZK = document.querySelector('.btnZK')
-let app
 
-btnZK.addEventListener('click',()=>{
-    if(confirm("fdg")){
-        localStorage.removeItem(`card${usName.textContent}`)
-    }
-})
-const carsMenu = document.querySelector(".modal-body")
 function crHeading(date){
     for(let i = 0; i<date.length;i++){
         if (date[i].products == rest){
@@ -27,96 +17,6 @@ function crHeading(date){
         }
     } 
 }
-
-
-function crCors(name,price,quantity){
-    let cr = document.createElement('div')
-    cr.classList.add('food-row')
-    cr.innerHTML=`
-					<span class="food-name">${name}</span>
-					<strong class="food-price">${price}</strong>
-					<div class="food-counter">
-						<button class="counter-button button-" >-</button>
-						<span class="counter quan">${quantity}</span>
-						<button class="counter-button butt">+</button>
-					</div>
-				`
-    carsMenu.append(cr)
-    priceCard.textContent = Number(priceCard.textContent) + (price * quantity)
-    cr.querySelector('.button-').addEventListener('click',()=>{
-        cr.querySelector('.quan').textContent--
-        if(cr.querySelector('.quan').textContent == 0){
-            console.log("dsada")
-            cr.remove()
-        }
-        masiv = JSON.parse(localStorage.getItem(`card${usName.textContent}`))
-        for(let i = 0;i<masiv.length ;i++){
-            if(masiv[i].name == name){
-                masiv[i].quantity--
-                if(masiv[i].quantity == 0){
-                    masiv.splice(i,1,)
-                    
-                }
-                localStorage.setItem(`card${usName.textContent}`, JSON.stringify(masiv))
-                
-            }
-        }
-    })
-    cr.querySelector('.butt').addEventListener('click',()=>{
-        cr.querySelector('.quan').textContent++
-        masiv = JSON.parse(localStorage.getItem(`card${usName.textContent}`))
-        for(let i = 0;i<masiv.length ;i++){
-            if(masiv[i].name == name){
-                masiv[i].quantity++
-                localStorage.setItem(`card${usName.textContent}`, JSON.stringify(masiv))
-                
-            }
-        }
-    })
-
-}
-
-if (localStorage.getItem(`card${usName.textContent}`)){
-    console.log("asdasdfasdf")
-    masiv = JSON.parse(localStorage.getItem(`card${usName.textContent}`))
-    for(let i in masiv) {
-        crCors(masiv[i].name,masiv[i].price,masiv[i].quantity)
-    }
-       
-
-}
-let fd_row = document.querySelectorAll('.food-row')
-
-
-function cardAdd(name,price,quantity){
-    let quan = document.querySelectorAll('.quan')
-    let food_name = document.querySelectorAll('.food-name')
-    if (localStorage.getItem(`card${usName.textContent}`)){
-        masiv = JSON.parse(localStorage.getItem(`card${usName.textContent}`))
-        console.log(masiv)
-        for(let i = 0;i<masiv.length;i++){
-            if(masiv[i].name == name){
-                masiv[i].quantity++
-                localStorage.setItem(`card${usName.textContent}`, JSON.stringify(masiv))
-                console.log(food_name)
-                for(let p = 0;p<food_name.length;p++){
-                    console.log("[pweor")
-                    if(food_name[p].textContent == name){
-                        console.log(quan[p])
-                        quan[p].textContent++
-                    }
-                }
-                return   
-            }
-        }
-       
-    }
-    masiv.push({name:name,price:price,quantity:quantity})
-        localStorage.setItem(`card${usName.textContent}`, JSON.stringify(masiv))
-        crCors(name,price,"1")
-}
-console.log(rest)
-
 function crMenu(date){
     date.forEach(({name,description,price,image}) => {
         let a = document.createElement('div')
